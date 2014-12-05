@@ -1,0 +1,11 @@
+    <h1> Edit this User! </h1>
+
+    <%= form_for @user do |f| %>
+        Username: <%= f.text_field :username %>
+        Email: <%= f.text_field :email %>
+
+        <%= f.submit "Edit User!" %>
+
+    <% end %>
+
+    <%= link_to "Back to the list!", users_path %>
