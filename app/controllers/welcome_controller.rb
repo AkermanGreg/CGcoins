@@ -10,7 +10,15 @@ class WelcomeController < ApplicationController
     ticker.keys.each do |key|
        oneline = (ticker[key].p15min)
        @ticker_out = oneline
-    end
+
+    #@stats = Blockchain::get_statistics()
+
+    require 'httparty'
+
+    @response = HTTParty.get("https://blockchain.info/stats?format=json")
+    @parsed_response = JSON.parse(@response.body)
+
 
     end
+  end
 end
