@@ -57,11 +57,12 @@
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="assets/app.js"></script>
 
-
-<p id="output" ></p><!-- displays the price -->
+<p id="output" ></p>
+Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
+<!-- displays the price -->
 
 <div id="myDemo">
-<!-- In here is the ball action -->
+  <!-- In here is the ball action -->
 </div>
 
 <script>    
@@ -89,7 +90,7 @@
       },
       aggregation:{height:1},
       suspension:{
-        decay:{power:1.01}
+        decay:{power:1.001}
       }
     },
     options:{
@@ -99,33 +100,10 @@
     }
   }
 
-  // Init the sedimentation
+  // Init the sedimentation library
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
 
 </script>
 <!-- END OF D3 BARCHART -->
-
-<h1>Block Chain Stats</h1><br />
-
-
-Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
-Hash Rate: <%= @parsed_response["hash_rate"] %><br />
-Total Fees BTC:<%= @parsed_response["total_fees_btc"] %><br />
-N BTC Mined:<%= @parsed_response["n_btc_mined"] %><br />
-N TX:<%= @parsed_response["n_tx"] %><br />
-N Blocks Mined:<%= @parsed_response["n_blocks_mined"] %><br />
-Total BC:<%= @parsed_response["totalbc"] %><br />
-Number Blocks Total:<%= @parsed_response["n_blocks_total"] %><br />
-Trade Volume Usd:<%= @parsed_response["trade_volume_usd"] %><br />
-Estimated Transaction Volume USD:<%= @parsed_response["estimated_transaction_volume_usd"] %><br />
-Blocks Size:<%= @parsed_response["Blocks Size"] %><br />
-Miners Revenu USD:<%= @parsed_response["miners_revenue_usd"] %><br />
-Next re-target:<%= @parsed_response["nextretarget"] %><br />
-Difficulty:<%= @parsed_response["difficulty"] %><br />
-Trade Volume BTC:<%= @parsed_response["trade_volume_btc"] %><br />
-Estimated BTC Sent:<%= @parsed_response["estimated_btc_sent"] %><br />
-Miners Revenue BTC:<%= @parsed_response["miners_revenue_btc"] %><br />
-Total BTC Sent:<%= @parsed_response["total_btc_sent"] %><br />
-Timestamp:<%= @parsed_response["timestamp"] %><br />
 
 

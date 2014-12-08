@@ -30,16 +30,20 @@ function initWebSocket() {
       for(var i = 0; i < response.x.out.length; i++ )
         amount += response.x.out[i].value;
       
-      // DIVIDES THE AMOUNT TO COVERT TO BTC
+      // DIVIDES THE AMOUNT and COVERTS TO BTC
       response.amount = amount / 100000000;
       initOutput = response.amount;
       console.log(initOutput);
 
-      // PRINTS THE INITAL OUTPUT TO THE HTML 
+      // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
       document.getElementById("output").innerHTML = "$" + (initOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
 
-      if( response.amount <= 3 ) {
-        response.amount = 3 ;
+      // these if else sets the min and max size tokens for d3
+      if( response.amount <= 5 ) {
+        response.amount = 5 ;
+      }
+      else if( response.amount >= 140   ) {
+        response.amount = 140 ;
       }
     }
 
