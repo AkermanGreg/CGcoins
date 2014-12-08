@@ -51,56 +51,59 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="assets/_VisualSedimentation.js"></script>
 
-
+<!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="assets/app.js"></script>
-<!-- <div id="output"></div> -->
-<div id="myDemo">Hello World container
-<button  type="button" onclick="barChart.addToken({id:'myId',size:30,category:0})" accesskey="b">  ↓ id="myId" </button>
+
+
+<p id="output" ></p><!-- displays the price -->
+
+<div id="myDemo">
+<!-- In here is the ball action -->
 </div>
+
 <script>    
   mySettings = {
-      width:1350,
-      height:600,
-      data:{
-            "model":
-                    [
-                      {label:"Column B"}
-                      
-                    ],
-            "strata":[
-                      [
-                        {initValue: 20, label: "Strata 1 col B"}
-                      ]      
-                    ],
-          stream:{
-                  provider:'generator',
-                  refresh:10000/4
-            },
-          },
-      sedimentation:{
-        token:{
-          size:{original:20}
-        },
-        aggregation:{height:10},
-        suspension:{
-          decay:{power:1.01}
-        }
+
+    width:1350,
+    height:600,
+
+    data: { 
+      "model":[ {label:"Column B"} ],
+      "strata":[[ {
+        initValue: 20, 
+        label: "Strata 1 col B"
+      }]],
+
+    // start of automatic token generator 
+    stream:{ provider:0},
+    },
+
+    sedimentation:{
+
+      // TOKENS ARE THE BALLS THAT DROP
+      token:{
+        size:{original:20},
       },
-      options:{
-        layout:false
-      },
-      chart:{
+      aggregation:{height:1},
+      suspension:{
+        decay:{power:1.01}
       }
+    },
+    options:{
+      layout:false
+    },
+    chart:{
     }
+  }
 
   // Init the sedimentation
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
 
 </script>
-
+<!-- END OF D3 BARCHART -->
 
 <h1>Block Chain Stats</h1><br />
 
@@ -125,4 +128,4 @@ Miners Revenue BTC:<%= @parsed_response["miners_revenue_btc"] %><br />
 Total BTC Sent:<%= @parsed_response["total_btc_sent"] %><br />
 Timestamp:<%= @parsed_response["timestamp"] %><br />
 
-   
+
