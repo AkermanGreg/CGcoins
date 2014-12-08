@@ -1,128 +1,54 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
+<!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="assets/_VisualSedimentation.js"></script>
 
-
+<!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="assets/app.js"></script>
-<!-- <div id="output"></div> -->
-<div id="myDemo">Hello World container
-<button  type="button" onclick="barChart.addToken({id:'myId',size:30,category:0})" accesskey="b">  ↓ id="myId" </button>
+
+
+<p id="output" ></p><!-- displays the price -->
+
+<div id="myDemo">
+<!-- In here is the ball action -->
 </div>
+
 <script>    
   mySettings = {
-      width:1350,
-      height:600,
-      data:{
-            "model":
-                    [
-                      {label:"Column B"}
-                      
-                    ],
-            "strata":[
-                      [
-                        {initValue: 20, label: "Strata 1 col B"}
-                      ]      
-                    ],
-          stream:{
-                  provider:'generator',
-                  refresh:10000/4
-            },
-          },
-      sedimentation:{
-        token:{
-          size:{original:20}
-        },
-        aggregation:{height:10},
-        suspension:{
-          decay:{power:1.01}
-        }
+
+    width:1350,
+    height:600,
+
+    data: { 
+      "model":[ {label:"Column B"} ],
+      "strata":[[ {
+        initValue: 20, 
+        label: "Strata 1 col B"
+      }]],
+
+    // start of automatic token generator 
+    stream:{ provider:0},
+    },
+
+    sedimentation:{
+
+      // TOKENS ARE THE BALLS THAT DROP
+      token:{
+        size:{original:20},
       },
-      options:{
-        layout:false
-      },
-      chart:{
+      aggregation:{height:1},
+      suspension:{
+        decay:{power:1.01}
       }
+    },
+    options:{
+      layout:false
+    },
+    chart:{
     }
+  }
 
   // Init the sedimentation
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
 
 </script>
+<!-- END OF D3 BARCHART -->
 
-
-<h1>Block Chain Stats</h1><br />
-
-
-Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
-Hash Rate: <%= @parsed_response["hash_rate"] %><br />
-Total Fees BTC:<%= @parsed_response["total_fees_btc"] %><br />
-N BTC Mined:<%= @parsed_response["n_btc_mined"] %><br />
-N TX:<%= @parsed_response["n_tx"] %><br />
-N Blocks Mined:<%= @parsed_response["n_blocks_mined"] %><br />
-Total BC:<%= @parsed_response["totalbc"] %><br />
-Number Blocks Total:<%= @parsed_response["n_blocks_total"] %><br />
-Trade Volume Usd:<%= @parsed_response["trade_volume_usd"] %><br />
-Estimated Transaction Volume USD:<%= @parsed_response["estimated_transaction_volume_usd"] %><br />
-Blocks Size:<%= @parsed_response["Blocks Size"] %><br />
-Miners Revenu USD:<%= @parsed_response["miners_revenue_usd"] %><br />
-Next re-target:<%= @parsed_response["nextretarget"] %><br />
-Difficulty:<%= @parsed_response["difficulty"] %><br />
-Trade Volume BTC:<%= @parsed_response["trade_volume_btc"] %><br />
-Estimated BTC Sent:<%= @parsed_response["estimated_btc_sent"] %><br />
-Miners Revenue BTC:<%= @parsed_response["miners_revenue_btc"] %><br />
-Total BTC Sent:<%= @parsed_response["total_btc_sent"] %><br />
-Timestamp:<%= @parsed_response["timestamp"] %><br />
-
-   
