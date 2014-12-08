@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
   root 'welcome#index'
+
+  get 'stats/' => 'stats#index', as: :stats
+
+  get 'exchange/' => 'exchange#index', as: :exchange
   
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
