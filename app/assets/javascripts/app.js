@@ -10,12 +10,17 @@ function init() {
 function initWebSocket() {
   //  init blockchain websocket (activity, blocks)
   var blockchain = new WebSocket('ws://ws.blockchain.info/inv');
-  
-
+  var litecoin = new WebSocket('ws://ws.ltcchain.com:8000');
   
   blockchain.onopen = function () {
     blockchain.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
     blockchain.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
+  };
+
+  litecoin.onopen = function () {
+    litecoin.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
+    litecoin.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
+ 
   };
  
  // when messages is received turn it to json and pass it to message.data
