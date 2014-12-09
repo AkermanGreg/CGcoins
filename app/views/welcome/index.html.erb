@@ -1,12 +1,14 @@
-
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="assets/_VisualSedimentation.js"></script>
 
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="assets/app.js"></script>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><p id="output" ></p>
+Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
+  <div class="col-md-7">
 
-<p id="output" ></p>
-Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
 <!-- displays the price -->
 
 <div id="myDemo">
@@ -15,23 +17,18 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
 
 <script>    
   mySettings = {
-
     width:1350,
     height:600,
-
     data: { 
       "model":[ {label:"Column B"} ],
       "strata":[[ {
         initValue: 20, 
         label: "Strata 1 col B"
       }]],
-
     // start of automatic token generator 
     stream:{ provider:0},
     },
-
     sedimentation:{
-
       // TOKENS ARE THE BALLS THAT DROP
       token:{
         size:{original:20},
@@ -47,12 +44,10 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
     chart:{
     }
   }
-
   // Init the sedimentation library
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
-
 </script>
 <!-- END OF D3 BARCHART -->
-
-
-
+</div>
+</div>
+<div class="col-md-1"></div>

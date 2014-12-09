@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'stats/' => 'stats#index', as: :stats
 
+  get 'charts/' => 'charts#index', as: :charts
+
   get 'exchange/' => 'exchange#index', as: :exchange
   
   get 'logout', to: 'sessions#destroy', as: 'logout'
