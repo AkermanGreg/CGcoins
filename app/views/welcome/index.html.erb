@@ -6,20 +6,20 @@
 <%= javascript_include_tag "app.js" %>
 <div class="row">
   <div class="col-md-1"></div>
-  <div class="col-md-3"><p id="output" ></p>
-Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
+  <div class="col-md-3">
+    <!-- displays the price -->
+    <p id="output" ></p>
+      Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
+  </div>
   <div class="col-md-7">
 
-<!-- displays the price -->
+    <div id="myDemo">
+      <!-- In here is the ball action -->
+    </div>
 
-<div id="myDemo">
-  <!-- In here is the ball action -->
-</div>
+    <%= javascript_include_tag "moneyFalling.js" %>
 
-<%= javascript_include_tag "moneyFalling.js" %>
-
-<!-- END OF D3 BARCHART -->
-</div>
-
-<div class="col-md-1"></div>
+        <!-- END OF D3 BARCHART -->
+  </div>
+    <div class="col-md-1"></div>
 </div>

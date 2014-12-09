@@ -1,5 +1,5 @@
 var wsUri = "wss://ws.blockchain.info/inv";
-var initOutput;
+var initOutput;  
 var TYPE_BLOCK = "block";
 
 function init() {
@@ -38,7 +38,8 @@ function initWebSocket() {
  // when messages is received turn it to json and pass it to message.data
   blockchain.onmessage = function (message) {
     var response = JSON.parse(message.data);
-    // console.log(message);
+
+    //console.log(message);
     
     // unconfirmed transactions 
     if( response.op == "utx") {
@@ -53,12 +54,20 @@ function initWebSocket() {
       console.log(response.amount);
 
       // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
+      //$("#output").html ("$" + (initOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375);
+
+      //store values in postgress, use sidekiq
+
+      //historical transactions
+
+    //PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
       document.getElementById("output").innerHTML = "$" + (initOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
 
       // these if else sets the min and max size tokens for d3
       if( response.amount <= 5 ) {
         response.amount  = 5 ;
       }
+
       else if( response.amount  >= 100   ) {
         response.amount  = 100 ;
       }
@@ -79,7 +88,7 @@ function initWebSocket() {
 function writeToScreen(message) {
   barChart.addToken( {
     id:'myId',
-    size: message * 3,
+    size: message,
     category:0,
     texture: {
       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc-tI1b7luXJgfHdwbTwCmSpciFwSrVG_cqMlOeF-0CEzrS6NAxw'

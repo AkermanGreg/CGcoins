@@ -1,5 +1,5 @@
 
-<!-- 
+
 <table>
   <tr>
     <td>Market</td>
@@ -8,25 +8,25 @@
     <td>High</td>
     <td>Low</td>
   </tr>
-<%# @parsed_response.each do |r| %>
+<% @parsed_response.each do |r| %>
 <tr>
   <td>
-    <%#= "#{r["symbol"]}" %>
+    <%= "#{r["symbol"]}" %>
   </td>
   <td>
-    <%#= "#{r["ask"]}" %>
+    <%= "#{r["ask"]}" %>
   </td>
   <td>
-    <%#= "#{r["avg"]}" %>
+    <%= "#{r["avg"]}" %>
   </td>
   <td>
-    <%#= "#{r["high"]}" %>
+    <%= "#{r["high"]}" %>
   </td>
   <td>
-    <%#= "#{r["low"]}" %>
+    <%= "#{r["low"]}" %>
   </td>
 </tr>
-<%# end %>
+<% end %>
 
 </table>
- -->
+@parsed_response
