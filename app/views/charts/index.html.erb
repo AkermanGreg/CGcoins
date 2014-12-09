@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td>Market</td>
+    <td>Price</td>
+    <td>Average</td>
+  </tr>
+<% @parsed_response.each do |r| %>
+<tr>
+  <td>
+    <%= "#{r["symbol"]}" %>
+  </td>
+  <td>
+    <%= "#{r["ask"]}" %>
+  </td>
+  <td>
+    <%= "#{r["avg"]}" %>
+  </td>
+</tr>
+<% end %>
+
+</table>

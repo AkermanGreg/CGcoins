@@ -1,64 +1,14 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="assets/_VisualSedimentation.js"></script>
 
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="assets/app.js"></script>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><p id="output" ></p>
+Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
+  <div class="col-md-7">
 
-<p id="output" ></p>
-Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
 <!-- displays the price -->
 
 <div id="myDemo">
@@ -67,7 +17,6 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
 
 <script>    
   mySettings = {
-
     width:1350,
     height:600,
     data: { 
@@ -76,13 +25,10 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
         initValue: 20, 
         label: "Strata 1 col B"
       }]],
-
     // start of automatic token generator 
     stream:{ provider:0},
     },
-
     sedimentation:{
-
       // TOKENS ARE THE BALLS THAT DROP
       token:{
         size:{original:20},
@@ -98,11 +44,10 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
     chart:{
     }
   }
-
   // Init the sedimentation library
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
-
 </script>
 <!-- END OF D3 BARCHART -->
-
-
+</div>
+</div>
+<div class="col-md-1"></div>

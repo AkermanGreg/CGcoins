@@ -1,0 +1,68 @@
+<h1>Block Chain Stats</h1><br />
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <table class="table table-striped">
+      <tr>
+        <!-- This get's Block Chain statistics --> 
+        <td>Market Price USD:</td><td> <%= @parsed_response["market_price_usd"] %></td>
+      </tr>
+      <tr>
+        <td>Hash Rate: </td><td> <%= @parsed_response["hash_rate"] %></td>
+      </tr>
+      <tr>
+        <td>Total Fees BTC: </td><td> <%= @parsed_response["total_fees_btc"] %></td>
+      </tr>
+      <tr>
+        <td>N BTC Mined:</td><td> <%= @parsed_response["n_btc_mined"] %></td>
+      </tr>
+      <tr>
+        <td>N TX:</td><td> <%= @parsed_response["n_tx"] %></td>
+      </tr>
+      <tr>
+        <td>N Blocks Mined:</td><td> <%= @parsed_response["n_blocks_mined"] %></td>
+      </tr>
+      <tr>
+        <td>Total BC:</td><td> <%= @parsed_response["totalbc"] %></td>
+      </tr>
+      <tr>
+        <td>Number Blocks Total:</td><td> <%= @parsed_response["n_blocks_total"] %></td>
+      </tr>
+      <tr>
+        <td>Trade Volume Usd:</td><td> <%= @parsed_response["trade_volume_usd"] %></td>
+      </tr>
+      <tr>
+        <td>Estimated Transaction Volume USD:</td><td> <%= @parsed_response["estimated_transaction_volume_usd"] %></td>
+      </tr>
+      <tr>
+        <td>Blocks Size:</td><td> <%= @parsed_response["blocks_size"] %></td>
+      </tr>
+      <tr>
+        <td>Miners Revenu USD:</td><td> <%= @parsed_response["miners_revenue_usd"] %></td>
+      </tr>
+      <tr>
+        <td>Next re-target:</td><td> <%= @parsed_response["nextretarget"] %></td>
+      </tr>
+      <tr>
+        <td>Difficulty:</td><td> <%= @parsed_response["difficulty"] %></td>
+      </tr>
+      <tr>
+        <td>Trade Volume BTC:</td><td> <%= @parsed_response["trade_volume_btc"] %></td>
+      </tr>
+      <tr>
+        <td>Estimated BTC Sent:</td><td> <%= @parsed_response["estimated_btc_sent"] %></td>
+      </tr>
+      <tr>
+        <td>Miners Revenue BTC:</td><td> <%= @parsed_response["miners_revenue_btc"] %></td>
+      </tr>
+      <tr>
+        <td>Total BTC Sent:</td><td> <%= @parsed_response["total_btc_sent"] %></td>
+      </tr>
+      <tr>
+        <td>Timestamp:</td><td> <%= @parsed_response["timestamp"] %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-md-4"></div>
+</div>
