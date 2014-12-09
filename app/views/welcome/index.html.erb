@@ -2,7 +2,8 @@
 <script type="text/javascript" src="assets/_VisualSedimentation.js"></script>
 
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
-<script type="text/javascript" src="assets/app.js"></script>
+
+<%= javascript_include_tag "app.js" %>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3"><p id="output" ></p>
@@ -15,39 +16,10 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
   <!-- In here is the ball action -->
 </div>
 
-<script>    
-  mySettings = {
-    width:1350,
-    height:600,
-    data: { 
-      "model":[ {label:"Column B"} ],
-      "strata":[[ {
-        initValue: 20, 
-        label: "Strata 1 col B"
-      }]],
-    // start of automatic token generator 
-    stream:{ provider:0},
-    },
-    sedimentation:{
-      // TOKENS ARE THE BALLS THAT DROP
-      token:{
-        size:{original:20},
-      },
-      aggregation:{height:1},
-      suspension:{
-        decay:{power:1.001}
-      }
-    },
-    options:{
-      layout:false
-    },
-    chart:{
-    }
-  }
-  // Init the sedimentation library
-  var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
-</script>
+<%= javascript_include_tag "moneyFalling.js" %>
+
 <!-- END OF D3 BARCHART -->
 </div>
-</div>
+
 <div class="col-md-1"></div>
+</div>
