@@ -14,9 +14,15 @@
   <div class="col-md-7">
 
     <div id="myDemo">
-      <%= javascript_include_tag "moneyFalling.js" %>
+      <!-- In here is the ball action -->
     </div>
+
+    <%= javascript_include_tag "moneyFalling.js" %>
+
+        <!-- END OF D3 BARCHART -->
   </div>
+    <div class="col-md-1"></div>
 
 <!-- END OF D3 BARCHART -->
 </div>
+
