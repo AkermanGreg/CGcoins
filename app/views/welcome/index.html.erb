@@ -17,7 +17,7 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
 
 <script>    
   mySettings = {
-    width:1350,
+    width:900,
     height:600,
     data: { 
       "model":[ {label:"Column B"} ],
@@ -35,7 +35,7 @@ Market Price USD: <%= @parsed_response["market_price_usd"] %><br /></div>
       },
       aggregation:{height:1},
       suspension:{
-        decay:{power:1.001}
+        decay:{power:1.005}
       }
     },
     options:{
