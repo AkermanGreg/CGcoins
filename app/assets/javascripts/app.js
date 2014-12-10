@@ -1,4 +1,4 @@
-var wsUri = "wss://ws.blockchain.info/inv";
+
 var btcOutput;
 var ltcOutput;
 // var output;
@@ -137,7 +137,7 @@ function initWebSocket() {
 //       src: '//cdni.wired.co.uk/1920x1280/k_n/litecoin.jpg'
 //     }
 //   });
-// }
+ }
 
 // fires init function when the window is loaded
 window.addEventListener("load", init, false);
