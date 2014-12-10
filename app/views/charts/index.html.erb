@@ -7,6 +7,7 @@
     <td>Average</td>
     <td>High</td>
     <td>Low</td>
+    <td>Currency Volume</td>
   </tr>
 <% @parsed_response.each do |r| %>
 <tr>
@@ -24,6 +25,9 @@
   </td>
   <td>
     <%= "#{r["low"]}" %>
+  </td>
+  <td>
+    <%= "#{r["currency_volume"]}" %>
   </td>
 </tr>
 <% end %>
