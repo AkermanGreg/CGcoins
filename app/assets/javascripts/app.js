@@ -73,7 +73,7 @@ function initWebSocket() {
       size: message,
       category:0,
       texture: {
-        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc-tI1b7luXJgfHdwbTwCmSpciFwSrVG_cqMlOeF-0CEzrS6NAxw'
+        src: '//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc-tI1b7luXJgfHdwbTwCmSpciFwSrVG_cqMlOeF-0CEzrS6NAxw'
       }
     });
   }
@@ -134,7 +134,7 @@ function writeToScreen(message) {
     size: message,
     category:0,
     texture: {
-      src: 'http://cdni.wired.co.uk/1920x1280/k_n/litecoin.jpg'
+      src: '//cdni.wired.co.uk/1920x1280/k_n/litecoin.jpg'
     }
   });
 }
