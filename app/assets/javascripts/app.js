@@ -14,12 +14,12 @@ function initWebSocket() {
   var blockchain = new WebSocket('wss://ws.blockchain.info/inv');
   //var litecoin = new WebSocket('ws://ws.dogechain.info/inv');
   
-  litecoin.onopen = function () {
+  // litecoin.onopen = function () {
 
-    litecoin.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
-    litecoin.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
+  //   litecoin.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
+  //   litecoin.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
  
-  };
+  // };
   blockchain.onopen = function () {
     blockchain.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
     blockchain.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
@@ -46,7 +46,7 @@ function initWebSocket() {
        console.log(btcOutput);
 
       // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
-      // document.getElementById("output").innerHTML = "$" + (btcOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
+       document.getElementById("output").innerHTML = "$" + (btcOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
 
       // these if else sets the min and max size tokens for d3
       if( response.amount <= 5 ) {
