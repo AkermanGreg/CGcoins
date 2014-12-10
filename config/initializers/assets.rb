@@ -4,7 +4,7 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( moneyFalling.js )
 Rails.application.config.assets.precompile += %w( app.js )
-
+Rails.application.config.assets.precompile += %w( _VisualSedimentation.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
