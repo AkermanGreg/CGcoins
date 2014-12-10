@@ -11,8 +11,8 @@ function init() {
 
 function initWebSocket() {
   //  init blockchain websocket (activity, blocks)
-  var blockchain = new WebSocket('ws://ws.blockchain.info/inv');
-  var litecoin = new WebSocket('ws://ws.dogechain.info/inv');
+  var blockchain = new WebSocket('wss://ws.blockchain.info/inv');
+  var litecoin = new WebSocket('wss://ws.dogechain.info/inv');
   
   litecoin.onopen = function () {
 
