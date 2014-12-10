@@ -1,11 +1,15 @@
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
-<%= javascript_include_tag "_VisualSedimentation.js" %>
-<!--- <script type="text/javascript" src="assets/_VisualSedimentation.js"></script> --->
+<script type="text/javascript" src="assets/_VisualSedimentation.js"></script> 
 
-<!--<script type="text/javascript" src="assets/app.js"></script>--->
+
+<script type="text/javascript" src="assets/app.js"></script> 
+
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 
-<%= javascript_include_tag "app.js" %>
+
+
+<%#= javascript_include_tag "_VisualSedimentation.js" %>
+<%#= javascript_include_tag "app.js" %>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3">
@@ -16,8 +20,8 @@
   <div class="col-md-7">
 
     <div id="myDemo">
-      <%= javascript_include_tag "moneyFalling.js" %>
-     <!---  <script type="text/javascript" src="assets/moneyFalling.js"></script> --->
+      <%#= javascript_include_tag "moneyFalling.js" %>
+     <script type="text/javascript" src="assets/moneyFalling.js"></script>
     </div>
   </div>
 
