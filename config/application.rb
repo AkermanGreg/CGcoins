@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
+
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_record/railtie"
@@ -15,6 +16,8 @@ Bundler.require(*Rails.groups)
 
 module CGcoin
   class Application < Rails::Application
+    # config/application.rb
+config.i18n.enforce_available_locales = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

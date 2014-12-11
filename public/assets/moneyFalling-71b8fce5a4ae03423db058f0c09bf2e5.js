@@ -1,0 +1,1 @@
+mySettings={width:900,height:700,data:{model:[{label:"Column B"}],strata:[[{initValue:20,label:"Strata 1 col B"}]],stream:{provider:0}},sedimentation:{token:{size:{original:20}},aggregation:{height:1},suspension:{decay:{power:1.001}}},options:{layout:!1},chart:{}};var barChart=$("#myDemo").vs(mySettings).data("visualSedimentation");
