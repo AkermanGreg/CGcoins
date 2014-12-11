@@ -24,7 +24,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
  // when messages is received turn it to json and pass it to message.data
   blockchain.onmessage = function (message) {
     var response = JSON.parse(message.data);
-     console.log(message);
+     // console.log(message);
     
     // unconfirmed transactions 
     if( response.op == "utx") {
@@ -39,7 +39,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       console.log(btcOutput);
 
       // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
-      document.getElementById("output").innerHTML = "BTC $" + (btcOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
+      document.getElementById("output").innerHTML = "BTC $" + (btcOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD;
 
       // these if else sets the min and max size tokens for d3
       if( response.amount <= 5 ) {
@@ -98,7 +98,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       console.log(dgeOutput);
 
       // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
-      document.getElementById("output").innerHTML = "Doge$" + (dgeOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 375;
+      document.getElementById("output").innerHTML = "Doge$" + (dgeOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 0.000207;
 
       // these if else sets the min and max size tokens for d3
       if( response.amount <= 5 ) {

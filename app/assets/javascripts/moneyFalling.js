@@ -2,10 +2,10 @@
   mySettings = {
     width:900,
     height:700,
-    data: { 
+    data: {
       "model":[ {label:"Column B"} ],
       "strata":[[ {
-        initValue: 20, 
+        initValue: 20,
         label: "Strata 1 col B"
       }]],
     // start of automatic token generator 

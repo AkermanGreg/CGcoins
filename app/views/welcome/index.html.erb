@@ -15,15 +15,19 @@
   <div class="col-md-3">
     <!-- displays the price -->
     <p id="output" ></p>
-      Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
+
+    <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+      priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+    <% end %>
+
+    Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
   </div>
   <div class="col-md-7">
-
     <div id="myDemo">
       <%#= javascript_include_tag "moneyFalling.js" %>
      <script type="text/javascript" src="/assets/moneyFalling.js"></script>
-    </div>
+    </div><!-- END OF D3 BARCHART -->
   </div>
 
-<!-- END OF D3 BARCHART -->
+
 </div>
