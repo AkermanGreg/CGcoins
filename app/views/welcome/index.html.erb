@@ -10,14 +10,18 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-3">
+    Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
+
+    
     <!-- displays the price -->
-    <p id="output" ></p>
+    <p id="grandtotal" ></p>
+    <div id="output"class="btclist">
+    </div>
 
     <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
       priceUSD = "<%= @parsed_response["market_price_usd"] %>"
     <% end %>
 
-    Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
   </div>
   <div class="col-md-7">
     <div id="myDemo">

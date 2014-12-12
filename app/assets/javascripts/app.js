@@ -2,8 +2,10 @@
 var btcOutput;
 var ltcOutput;
 var dgeOutput;
-// var output;
+var output;
 var TYPE_BLOCK = "block";
+var total = [];
+
 
 function init() {
   output = document.getElementById("output");
@@ -29,25 +31,31 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     // unconfirmed transactions 
     if( response.op == "utx") {
       var amount = 0;
-      
+
       for(var i = 0; i < response.x.out.length; i++ )
         amount += response.x.out[i].value;
-      
-      // DIVIDES THE AMOUNT and COVERTS TO BTC
-      response.amount = amount / 100000000;
-      btcOutput = response.amount;
-      console.log(btcOutput);
+        // DIVIDES THE AMOUNT and COVERTS TO BTC
+        response.amount = amount / 100000000;
+        total.push(response.amount);
+        // console.log(total);priceUSD
 
-      // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
-      document.getElementById("output").innerHTML = "BTC $" + (btcOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD;
+      var grandTotal = 0;
+        for (var j = 0; j < total.length; ++j)
+          grandTotal += total[j] << 0;
+          // console.log(grandTotal);
+        
 
-      // these if else sets the min and max size tokens for d3
-      if( response.amount <= 5 ) {
-        response.amount = 5 ;
-      }
-      else if( response.amount >= 140 ) {
-        response.amount = 140 ;
-      }
+        // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
+        // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
+        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * 350;
+
+        // these if else sets the min and max size tokens for d3
+        if( response.amount <= 5 ) {
+          response.amount = 5 ;
+        }
+        else if( response.amount >= 140 ) {
+          response.amount = 140 ;
+        }
     }
 
     // if a block is created
@@ -69,6 +77,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         src: 'assets/bitcoin.jpeg'
       }
     });
+    var pre = document.createElement("p");
+    pre.style.wordWrap = "break-word";
+    pre.innerHTML = message;
+    output.appendChild(pre);
   }/////// end of BITCOIN ////////
   
   ///////////////////////////////// DOGECOIN STARTS////////////////////////////////////////
@@ -98,7 +110,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       console.log(dgeOutput);
 
       // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
-      document.getElementById("output").innerHTML = "Doge$" + (dgeOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 0.000207;
+      // document.getElementById("output").innerHTML = "Doge$" + (dgeOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 0.000207;
 
       // these if else sets the min and max size tokens for d3
       if( response.amount <= 5 ) {

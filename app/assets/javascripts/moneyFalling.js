@@ -26,6 +26,6 @@
     },
     chart:{
     }
-  }
+  };
   // Init the sedimentation library
   var barChart = $("#myDemo").vs(mySettings).data('visualSedimentation');
