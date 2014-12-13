@@ -17,6 +17,8 @@
     <p id="grandtotal" ></p>
     <div id="output"class="btclist">
     </div>
+    <div id="dollar"class="btclist">
+    </div>
 
     <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
       priceUSD = "<%= @parsed_response["market_price_usd"] %>"
