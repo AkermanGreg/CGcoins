@@ -7,16 +7,18 @@ Rails.application.routes.draw do
   get 'charts/' => 'charts#index', as: :charts
 
   get 'exchange/' => 'exchange#index', as: :exchange
+
+  get 'bubble/' => 'welcome#bubble', as: :bubble
   
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  get 'users/' => 'users#index', as: :users
-  get 'users/new' => 'users#new', as: :new_user
-  get 'users/:id' => 'users#show', as: :user
-  post 'users/' => 'users#create'
-  get 'users/:id/edit' => 'users#edit', as: :edit_user
-  patch 'users/:id' => 'users#update'
-  delete 'users/:id' => 'users#destroy'
+  # get 'users/' => 'users#index', as: :users
+  # get 'users/new' => 'users#new', as: :new_user
+  # get 'users/:id' => 'users#show', as: :user
+  # post 'users/' => 'users#create'
+  # get 'users/:id/edit' => 'users#edit', as: :edit_user
+  # patch 'users/:id' => 'users#update'
+  # delete 'users/:id' => 'users#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

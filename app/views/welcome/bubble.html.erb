@@ -1,0 +1,20 @@
+<!-- REQUIRE Visual Sedimentation Library -->
+<script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
+<script type="text/javascript" src="/assets/_vs.chart.heapchart.js"></script>
+
+<!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
+<script type="text/javascript" src="/assets/app_bubble.js"></script>
+
+<!-- TEST BUTTONS FOR TOKENS -->
+<button class="btn btn-success " onclick="btcTokenBubble()">BitCoin token</button>
+<button class="btn btn-success " onclick="dgeTokenBubble()">DogeCoin token</button>
+
+<%#= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+  priceUSD = "<%#= @parsed_response["market_price_usd"] %>"
+<%# end %>
+
+<div class="content">
+  <div id="heatchart">
+    <script type="text/javascript" src="/assets/bubble.js"></script>
+  </div>
+</div> 

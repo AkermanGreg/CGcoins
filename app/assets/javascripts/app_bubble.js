@@ -12,6 +12,27 @@ var output;    // var for displaying btc transactions to screen
 var TYPE_BLOCK = "block"; // var for when a block is created
 var total = []; // array for adding the total USD ammount 
 
+  function dgeTokenBubble() { // DOGE TOKEN TEST
+    heatchart.addToken( {
+      id:'myId',
+      size: 200,
+      category:0,
+      texture: {
+        src: 'assets/dogecoin2.png'
+      }
+    });
+  }
+  function btcTokenBubble() { // BITCOIN TOKEN TEST
+    heatchart.addToken( {
+      // id:'myId',
+      size: 100,
+      category:0,
+      texture: {
+        src: 'assets/bitcoin.jpeg'
+      }
+    });
+  }
+
 //This function toggles the Bitcoin coin drop
 function toggleBitcoin() {
   
@@ -102,7 +123,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
         // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
         // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
-        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD;
+        // document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD;
 
         // these if else sets the min and max size tokens for d3
         if( response.amount <= 4 ) {
@@ -120,13 +141,14 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     }
     
     if ( btcBtn == true ) {
-      writeToScreen(response.amount); // this function fires when an onmessage is received
+      btcTokenBubble(btcOutput); // this function fires when an onmessage is received
     }
 
   };
   // fires a function to drop a d3 token (message is the btc transaction size from response.amount)
-  function writeToScreen(message) {
-    barChart.addToken( {
+
+  function btcTokenBubble(message) {
+    heatchart.addToken( {
       // id:'myId',
       size: message,
       category:0,
@@ -135,19 +157,19 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       }
     });
 
-    if (btcPrintAmt == true) {
-      var pre = document.createElement("p");
-      pre.style.wordWrap = "break-word";
-      pre.innerHTML = btcOutput;
-      output.appendChild(pre);
-    }
+    // if (btcPrintAmt == true) {
+    //   var pre = document.createElement("p");
+    //   pre.style.wordWrap = "break-word";
+    //   pre.innerHTML = btcOutput;
+    //   output.appendChild(pre);
+    // }
 
-    if (btcPrintDollar == true) {
-      var pre2 = document.createElement("p");
-      pre2.style.wordWrap = "break-word";
-      pre2.innerHTML = btcOutput * priceUSD;
-      dollarOut.appendChild(pre2);
-    }
+    // if (btcPrintDollar == true) {
+    //   var pre2 = document.createElement("p");
+    //   pre2.style.wordWrap = "break-word";
+    //   pre2.innerHTML = btcOutput * priceUSD;
+    //   dollarOut.appendChild(pre2);
+    // }
   }/////// end of BITCOIN ////////
   
   ///////////////////////////////// DOGECOIN STARTS////////////////////////////////////////
@@ -195,13 +217,13 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     }
     
     if ( dogeBtn == true ) {
-      writeToScreen2(response.amount); // this function fires when an onmessage is received
+      dgeTokenBubble(dgeOutput); // this function fires when an onmessage is received
     }
 
   };
 
-  function writeToScreen2(message) {
-    barChart.addToken( {
+  function dgeTokenBubble(message) {
+    heatchart.addToken( {
       id:'myId',
       size: message,
       category:0,

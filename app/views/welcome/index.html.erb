@@ -9,7 +9,7 @@
     <div class="core-header-panel "><!-- Polymer core element -->
 
       <div class="core-header">
-        Price Tally
+        <%= link_to image_tag("CGcoinlogo.png"), root_path, method: :get %>
       </div>
 
       <div class="content">
@@ -17,8 +17,6 @@
           priceUSD = "<%= @parsed_response["market_price_usd"] %>"
         <% end %>
         Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
-        <button onclick="toggleBitcoin()">Bitcoin</button>
-        <button onclick="toggleDogecoin()">Dogecoin</button>
         <br />
         <button class="togglePrintAmt" onclick="toggleBtcPrintAmt()">Toggle Bitcoin Display Amount</button>
         <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
@@ -42,7 +40,10 @@
   <div class="col-md-7">
     <div class="core-header-panel2">
       <div class="core-header">
-        Visualization
+        <button class="btn btn-warning" onclick="toggleBitcoin()" >Bitcoin</button> 
+        <!-- <button type="button" onclick="toggleBitcoin()"class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Bitcoin Tokens OFF">Bitcoin</button> -->
+        <button class="btn btn-success " onclick="toggleDogecoin()">Dogecoin</button>
+        LIVE Bitcoin Transaction
       </div>
 
       <div class="content">
