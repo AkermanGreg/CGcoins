@@ -1,32 +1,46 @@
+
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
 
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="/assets/app.js"></script> 
 
-
-<%#= javascript_include_tag "_VisualSedimentation.js" %>
-<%#= javascript_include_tag "app.js" %>
 <div class="row">
+
   <div class="col-md-1"></div>
   <div class="col-md-3">
-    Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
+   
+    <!-- current market price -->
 
-    
+
+    <!-- Polymer core element -->
+    <div class="core-header-panel">
+    <div class="core-header">Price Tally</div>
+      <div class="content">
+            Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
+      <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+        priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+      <% end %>
     <!-- displays the price -->
-    <p id="grandtotal" ></p>
+      <p id="grandtotal" ></p>
     <div id="output"class="btclist">
     </div>
-
-    <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
-      priceUSD = "<%= @parsed_response["market_price_usd"] %>"
-    <% end %>
+    </div>
+  </div>
+  
 
   </div>
   <div class="col-md-7">
+     <div class="core-header-panel2">
+    <div class="core-header">Visualization</div>
+      <div class="content">
+
     <div id="myDemo">
       <%#= javascript_include_tag "moneyFalling.js" %>
       <script type="text/javascript" src="/assets/moneyFalling.js"></script>
+          </div>
+    </div>
+  </div>
     </div>
   </div><!-- END OF D3 BARCHART -->
 </div>
