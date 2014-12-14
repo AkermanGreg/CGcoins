@@ -11,7 +11,8 @@
   <div class="col-md-1"></div>
   <div class="col-md-3">
     Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
-
+    <button onclick="toggleBitcoin()">Bitcoin</button>
+    <button onclick="toggleDogecoin()">Dogecoin</button>
     
     <!-- displays the price -->
     <p id="grandtotal" ></p>

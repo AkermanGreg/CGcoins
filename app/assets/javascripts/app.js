@@ -1,12 +1,32 @@
+var btcBtn = true;  // for the button to turn on/off btc tokens
+var dogeBtn = true; // for button to turn on/off dogecoin tokens
 
-var btcOutput;
-var ltcOutput;
-var dgeOutput;
-var dollarOut;
-var output;
-var TYPE_BLOCK = "block";
-var total = [];
+var btcOutput; // the btc transaction amount
+var ltcOutput; // the litecoin transaction amount
+var dgeOutput; // the dogecoin transaction amount
+var dollarOut; // var for displaying USD amount to screen
+var output;    // var for displaying btc transactions to screen
+var TYPE_BLOCK = "block"; // var for when a block is created
+var total = []; // array for adding the total USD ammount 
 
+function toggleBitcoin() {
+  console.log("togglebitcoin works");
+  if (btcBtn == false){
+    btcBtn = true;
+  }
+  else {
+    btcBtn = false;
+  }
+}
+function toggleDogecoin() {
+  console.log("toggle Dogecoin works");
+  if (btcBtn == false){
+    btcBtn = true;
+  }
+  else {
+    btcBtn = false;
+  }
+}
 
 function init() { // fires when page is loaded
   output = document.getElementById("output"); // outputs unconfirmed btc transactions
@@ -66,8 +86,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       response.amount = Math.round( response.x.height / 10000 );
     }
     
-    // this function fires when an onmessage is received
-    writeToScreen(response.amount);
+    if ( btcBtn == true ) {
+      writeToScreen(response.amount); // this function fires when an onmessage is received
+    }
+
   };
   // fires a function to drop a d3 token (message is the btc transaction size from response.amount)
   function writeToScreen(message) {
@@ -135,8 +157,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       response.amount = Math.round( response.x.height / 10000 );
     }
     
-    // this function fires when an onmessage is received
-    writeToScreen2(response.amount);
+    if ( dogeBtn == true ) {
+      writeToScreen2(response.amount); // this function fires when an onmessage is received
+    }
+
   };
 
   function writeToScreen2(message) {
