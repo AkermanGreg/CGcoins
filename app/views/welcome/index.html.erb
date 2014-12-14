@@ -24,16 +24,22 @@
       <% end %>
 
     Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
-    <button onclick="toggleBitcoin()">Bitcoin</button>
-    <button onclick="toggleDogecoin()">Dogecoin</button>
+
     
 
     <!-- displays the price -->
-      <p id="grandtotal" ></p>
-    <div id="output"class="btclist">
-    </div>
-      <div id="dollar"class="btclist">
-    </div>
+      <p id="grandtotal"></p>
+      <table>
+        <tr>
+          <td>
+            <div id="output" class="btclist"></div>
+          </td>
+          <td>
+            <div id="dollar" class="btclist"></div>
+          </td>
+        </tr>
+      </table>
+
 
     </div>
   </div></div>
