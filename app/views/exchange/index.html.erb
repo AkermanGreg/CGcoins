@@ -56,7 +56,7 @@ var testdata = [
   {
     "key" : "Price" ,
     "values" : [ 
- <% @parsed_response.take(1000).each do |r| %>
+    <% @parsed_response.take(1000).each do |r| %>
  
      [<%= "#{r["date_ms"]}" %>, <%= "#{r["price"]}" %> * <%= "#{r["amount"]}" %>],
      <% end %>
