@@ -5,9 +5,8 @@
 <script type="text/javascript" src="/assets/app.js"></script> 
 
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-3">
-    <div class="core-header-panel"><!-- Polymer core element -->
+  <div class="col-md-4">
+    <div class="core-header-panel "><!-- Polymer core element -->
 
       <div class="core-header">
         Price Tally
@@ -27,16 +26,19 @@
         <p id="grandtotal" >
           <!-- Keeps a running tab of USD grand toatakamount -->
         </p>
-        <div id="output"class="btclist">
-          <!-- Lists all transactions in Bitcoins -->
-        </div>
-        <div id="dollar"class="btclist">
-          <!-- lists all transactions in USD amount -->
-        </div>
+        <table>
+          <tr>
+            <td>
+              <div id="output" class="btclist"></div><!-- lists all transactions in BTC amount -->
+            </td>
+            <td>
+              <div id="dollar" class="btclist"></div><!-- lists all transactions in USD amount -->
+            </td>
+          </tr>
+        </table>
       </div><!-- end content -->
-
     </div><!-- end core-header-panel -->
-  </div><!-- end col-md-3 -->
+  </div><!-- end col-md-4 -->
   <div class="col-md-7">
     <div class="core-header-panel2">
       <div class="core-header">

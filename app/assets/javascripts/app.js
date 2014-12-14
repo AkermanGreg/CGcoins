@@ -1,6 +1,9 @@
 var btcBtn = true;  // for the button to turn on/off btc tokens
 var dogeBtn = true; // for button to turn on/off dogecoin tokens
 
+var btcPrintAmt = true; // for the message that prints the amount of bitcoins traded
+var btcPrintDollar = true; // for the message that prints the dollar value of bitcoins traded
+
 var btcOutput; // the btc transaction amount
 var ltcOutput; // the litecoin transaction amount
 var dgeOutput; // the dogecoin transaction amount
@@ -9,6 +12,7 @@ var output;    // var for displaying btc transactions to screen
 var TYPE_BLOCK = "block"; // var for when a block is created
 var total = []; // array for adding the total USD ammount 
 
+//This function toggles the Bitcoin coin drop
 function toggleBitcoin() {
   console.log("togglebitcoin works");
   if (btcBtn == false){
@@ -18,15 +22,41 @@ function toggleBitcoin() {
     btcBtn = false;
   }
 }
+
+//This function toggles the Dogecoin coin drop
 function toggleDogecoin() {
   console.log("toggle Dogecoin works");
   if (btcBtn == false){
     btcBtn = true;
   }
   else {
-    btcBtn = false;
+      btcBtn = false;
   }
 }
+
+//This function toggles the Bitcoin Print Amount display
+function toggleBtcPrintAmt() {
+  console.log("toggle bitcoin print amount works");
+  if (btcPrintAmt == false){
+    btcPrintAmt = true;
+  }
+  else {
+    btcPrintAmt = false;
+  }
+}
+
+//This function toggles the Bitcoin Print Dollar amount display
+function toggleBtcPrintDollar() {
+  console.log("toggle bitcoin print dollar works");
+  if (btcPrintAmt == false){
+    btcPrintAmt = true;
+  }
+  else {
+    btcPrintAmt = false;
+  }
+}
+
+
 
 function init() { // fires when page is loaded
   output = document.getElementById("output"); // outputs unconfirmed btc transactions
@@ -101,15 +131,22 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         src: 'assets/bitcoin.jpeg'
       }
     });
-    var pre = document.createElement("p");
-    pre.style.wordWrap = "break-word";
-    pre.innerHTML = btcOutput;
-    output.appendChild(pre);
+    if (btcPrintAmt == true) {
+      var pre = document.createElement("p");
+      pre.style.wordWrap = "break-word";
+      pre.innerHTML = btcOutput;
+      output.appendChild(pre);
+    };
 
-    var pre2 = document.createElement("p");
-    pre2.style.wordWrap = "break-word";
-    pre2.innerHTML = btcOutput * priceUSD;
-    dollarOut.appendChild(pre2);
+    if (btcPrintDollar == true) {
+      console.log("second if work");
+      var pre2 = document.createElement("p");
+      pre2.style.wordWrap = "break-word";
+      pre2.innerHTML = btcOutput * priceUSD;
+      dollarOut.appendChild(pre2);
+    }
+ 
+
 
   }/////// end of BITCOIN ////////
   

@@ -17,17 +17,85 @@
 
  @import 'bootstrap';
 
- .btclist {
+
+// ::-webkit-scrollbar {
+//   width: 15px;
+//   height: 15px;
+// }
+
+// ::-webkit-scrollbar-track-piece  {
+//   background-color: black;
+// }
+
+// ::-webkit-scrollbar-thumb:vertical {
+//   height: 30px;
+//   background-color: grey;
+// }
+
+.btclist {
   border: solid 1px black;
   height: 600px;
   width: 200px;
- }
+}
 .navbar-width {
   width: 800px;
   left: 0;
   text-align: center;
   margin: auto;
 }
+
+.core-header-panel {
+  float: left;
+  width: 100%;
+  min-height: 400px;
+  margin: 5px;
+  box-shadow: 1px 1px 3px #292929;
+    -webkit-box-shadow: 1px 1px 3px #292929;
+    -moz-box-shadow: 1px 1px 3px #292929;
+  border: 1px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.core-header-panel[mode=cover]::shadow #mainContainer {
+  left: 70px;
+}
+
+.core-header-panel2 {
+  float: left;
+  height: 400px;
+  margin: 5px;
+  box-shadow: 1px 1px 3px #292929;
+    -webkit-box-shadow: 1px 1px 3px #292929;
+    -moz-box-shadow: 1px 1px 3px #292929;
+}
+
+.core-header-panel2[mode=cover]::shadow #mainContainer {
+  left: 70px;
+}
+
+.core-header {
+  height: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  padding: 0 10px;
+  background-color: #4F7DC9;
+  color: #FFF;
+  transition: height 0.2s;
+}
+
+.core-header.tall {
+  height: 180px;
+}
+
+.core-header.medium-tall {
+  height: 120px;
+}
+
+.content {
+  background: linear-gradient(rgb(214, 227, 231), lightblue);
+}
+
 // .container-fluid-custom {
 //   text-align: center;
 //   margin-right: auto;

@@ -6,111 +6,16 @@
   <%= javascript_include_tag 'application' %>
  
   <%= csrf_meta_tags %>
-      <!-- Material Design for Bootstrap -->
-    <link href="/assets/material-wfont.min.css" rel="stylesheet">
-    <link href="/assets/ripples.min.css" rel="stylesheet">
+  
+  <!-- Material Design for Bootstrap -->
+  <link href="/assets/material-wfont.min.css" rel="stylesheet">
+  <link href="/assets/ripples.min.css" rel="stylesheet">
 
   <!-- JAVASCRIPT LIBRARY LINK -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <!-- BOOTSTRAP LIBRARY LINK -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-  <style shim-shadowdom>
-
-    body {
-      font-family: sans-serif;
-    }
-
-    .core-header-panel {
-      float: left;
-      width: 360px;
-      height: 400px;
-      margin: 5px;
-       -webkit-box-shadow: 1px 1px 3px #292929;
-         -moz-box-shadow: 1px 1px 3px #292929;
-         box-shadow: 1px 1px 3px #292929;
-
-    }
-    
-    .core-header-panel[mode=cover]::shadow #mainContainer {
-      left: 70px;
-    }
-    .core-header-panel2 {
-      float: left;
-      
-      height: 400px;
-      margin: 5px;
-       -webkit-box-shadow: 1px 1px 3px #292929;
-         -moz-box-shadow: 1px 1px 3px #292929;
-         box-shadow: 1px 1px 3px #292929;
-
-    }
-    
-    .core-header-panel2[mode=cover]::shadow #mainContainer {
-      left: 70px;
-    }
-    .core-header {
-      height: 60px;
-      line-height: 60px;
-      font-size: 18px;
-      padding: 0 10px;
-      background-color: #4F7DC9;
-      color: #FFF;
-      transition: height 0.2s;
-    }
-    
-    .core-header.tall {
-      height: 180px;
-    }
-    
-    .core-header.medium-tall {
-      height: 120px;
-    }
-
-    .content {
-      height: 2000px;
-      background: linear-gradient(rgb(214, 227, 231), lightblue);
-    }
-
-     body.core-narrow {
-      padding: 8px;
-    }
-    
-  
-    
-     paper-tabs, core-toolbar {
-      background-color: #00bcd4;
-      color: #fff;
-      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-    }
-    
-    core-toolbar paper-tabs {
-      box-shadow: none;
-    }
-    
-    paper-tabs[noink][nobar] paper-tab.core-selected {
-      color: #ffff8d;
-    }
-    
-    paper-tabs.transparent-teal {
-      background-color: transparent;
-      color: #00bcd4;
-      box-shadow: none;
-    }
-    
-    paper-tabs.transparent-teal::shadow #selectionBar {
-      background-color: #00bcd4;
-    }
-    
-    paper-tabs.transparent-teal paper-tab::shadow #ink {
-      color: #00bcd4;
-    }
-    
-
-  </style>
-
-
-
 </head>
 <body>
 
