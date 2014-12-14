@@ -1,57 +1,79 @@
+var btcBtn = true;  // for the button to turn on/off btc tokens
+var dogeBtn = true; // for button to turn on/off dogecoin tokens
 
-var btcOutput;
-var ltcOutput;
-var dgeOutput;
-var output;
-var TYPE_BLOCK = "block";
-var total = [];
+var btcOutput; // the btc transaction amount
+var ltcOutput; // the litecoin transaction amount
+var dgeOutput; // the dogecoin transaction amount
+var dollarOut; // var for displaying USD amount to screen
+var output;    // var for displaying btc transactions to screen
+var TYPE_BLOCK = "block"; // var for when a block is created
+var total = []; // array for adding the total USD ammount 
 
+function toggleBitcoin() {
+  console.log("togglebitcoin works");
+  if (btcBtn == false){
+    btcBtn = true;
+  }
+  else {
+    btcBtn = false;
+  }
+}
+function toggleDogecoin() {
+  console.log("toggle Dogecoin works");
+  if (btcBtn == false){
+    btcBtn = true;
+  }
+  else {
+    btcBtn = false;
+  }
+}
 
-function init() {
-  output = document.getElementById("output");
-  initWebSocket();
+function init() { // fires when page is loaded
+  output = document.getElementById("output"); // outputs unconfirmed btc transactions
+  dollarOut = document.getElementById("dollar"); // ouputs unconfirmed btc transactions in dollar amount
+  initWebSocket(); // fires websocket function to load the websocket
 }
 
 function initWebSocket() {//  init blockchain websocket (activity, blocks)
   
  ///////////////////// BITCOIN STARTS///////////////////////
-  var blockchain = new WebSocket('ws://ws.blockchain.info/inv');
-  blockchain.onerror = function (error){ console.log('connection.onerror',error); };
-  blockchain.onopen = function () {
+  var blockchain = new WebSocket('ws://ws.blockchain.info/inv'); //blockchain.info's web socket address
+  blockchain.onerror = function (error){ console.log('connection.onerror',error); }; // logs if an ".onerror" is a response
+  blockchain.onopen = function () { // fires this function when ".onopen" response is received from blockchain's websocket
     console.log ("btc CONNECTED");
-    blockchain.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
-    blockchain.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
+    blockchain.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribes to uncofirmed activity
+    blockchain.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribes to new blocks
   };
 
- // when messages is received turn it to json and pass it to message.data
-  blockchain.onmessage = function (message) {
+ 
+  blockchain.onmessage = function (message) { // when ".onmessage" is the response it parses json and pass it to "response" 
     var response = JSON.parse(message.data);
      // console.log(message);
     
     // unconfirmed transactions 
-    if( response.op == "utx") {
+    if( response.op == "utx") { // if the response received is utx passes .value into var amount
       var amount = 0;
 
-      for(var i = 0; i < response.x.out.length; i++ )
-        amount += response.x.out[i].value;
-        // DIVIDES THE AMOUNT and COVERTS TO BTC
-        response.amount = amount / 100000000;
-        total.push(response.amount);
-        // console.log(total);priceUSD
+      for(var i = 0; i < response.x.out.length; i++ ) // pulls out .value if there are multipule
+        amount += response.x.out[i].value; // sets the value of btc to var amount
+        
+        response.amount = amount / 100000000; // DIVIDES THE AMOUNT and COVERTS TO BTC
+        total.push(response.amount); // passes the transaction amount to the total array
+        btcOutput = response.amount; // sets btcOutput to the transaction amount before its rounded
 
       var grandTotal = 0;
-        for (var j = 0; j < total.length; ++j)
-          grandTotal += total[j] << 0;
+        for (var j = 0; j < total.length; ++j) //loops through the total array and adds them up
+          grandTotal += total[j] << 0; // adds total and sets it to grandTotal
           // console.log(grandTotal);
         
 
         // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
         // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
-        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * 350;
+        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD;
 
         // these if else sets the min and max size tokens for d3
-        if( response.amount <= 5 ) {
-          response.amount = 5 ;
+        if( response.amount <= 4 ) {
+          response.amount = 4 ;
         }
         else if( response.amount >= 140 ) {
           response.amount = 140 ;
@@ -64,8 +86,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       response.amount = Math.round( response.x.height / 10000 );
     }
     
-    // this function fires when an onmessage is received
-    writeToScreen(response.amount);
+    if ( btcBtn == true ) {
+      writeToScreen(response.amount); // this function fires when an onmessage is received
+    }
+
   };
   // fires a function to drop a d3 token (message is the btc transaction size from response.amount)
   function writeToScreen(message) {
@@ -79,8 +103,14 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     });
     var pre = document.createElement("p");
     pre.style.wordWrap = "break-word";
-    pre.innerHTML = message;
+    pre.innerHTML = btcOutput;
     output.appendChild(pre);
+
+    var pre2 = document.createElement("p");
+    pre2.style.wordWrap = "break-word";
+    pre2.innerHTML = btcOutput * priceUSD;
+    dollarOut.appendChild(pre2);
+
   }/////// end of BITCOIN ////////
   
   ///////////////////////////////// DOGECOIN STARTS////////////////////////////////////////
@@ -113,8 +143,8 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       // document.getElementById("output").innerHTML = "Doge$" + (dgeOutput.toString().match(/^\d+(?:\.\d{0,2})?/)) * 0.000207;
 
       // these if else sets the min and max size tokens for d3
-      if( response.amount <= 5 ) {
-        response.amount = 5 ;
+      if( response.amount <= 4 ) {
+        response.amount = 4 ;
       }
       else if( response.amount >= 140   ) {
         response.amount = 140 ;
@@ -127,8 +157,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       response.amount = Math.round( response.x.height / 10000 );
     }
     
-    // this function fires when an onmessage is received
-    writeToScreen2(response.amount);
+    if ( dogeBtn == true ) {
+      writeToScreen2(response.amount); // this function fires when an onmessage is received
+    }
+
   };
 
   function writeToScreen2(message) {
@@ -137,7 +169,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       size: message,
       category:0,
       texture: {
-        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToSilQz7QztIRYp3ddniAdeaJQiCT7iDjlUvPlW4wtgE8pcw1_Cg'
+        src: 'assets/dogecoin2.png'
       }
     });
   }////// end of DOGECOIN //////

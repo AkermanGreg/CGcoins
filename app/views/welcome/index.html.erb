@@ -9,6 +9,7 @@
 
   <div class="col-md-1"></div>
   <div class="col-md-3">
+
    
     <!-- current market price -->
 
@@ -21,15 +22,28 @@
       <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
         priceUSD = "<%= @parsed_response["market_price_usd"] %>"
       <% end %>
+
+    Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
+    <button onclick="toggleBitcoin()">Bitcoin</button>
+    <button onclick="toggleDogecoin()">Dogecoin</button>
+    
+
     <!-- displays the price -->
       <p id="grandtotal" ></p>
     <div id="output"class="btclist">
     </div>
+      <div id="dollar"class="btclist">
     </div>
-  </div>
+
+    </div>
+  </div></div>
+
   
 
-  </div>
+    <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+      priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+    <% end %>
+
   <div class="col-md-7">
      <div class="core-header-panel2">
     <div class="core-header">Visualization</div>
