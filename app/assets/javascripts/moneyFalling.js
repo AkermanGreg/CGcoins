@@ -1,7 +1,8 @@
 
   mySettings = {
-    width:900,
-    height:700,
+    width:900, // canvas size
+    height:700, // canvas size
+
     data: {
       "model":[ {label:"Column B"} ],
       "strata":[[ {
@@ -13,12 +14,12 @@
     },
     sedimentation:{
       // TOKENS ARE THE BALLS THAT DROP
-      token:{
-        size:{original:20},
-      },
+      // token:{
+      //   size:{original:20},
+      // },
       aggregation:{height:1},
       suspension:{
-        decay:{power:1.001}
+        decay:{power:1.001} // speed at which the balls disappear smaller number is slower
       }
     },
     options:{

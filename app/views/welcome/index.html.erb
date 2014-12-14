@@ -1,4 +1,3 @@
-
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
 
@@ -6,55 +5,50 @@
 <script type="text/javascript" src="/assets/app.js"></script> 
 
 <div class="row">
-
   <div class="col-md-1"></div>
   <div class="col-md-3">
+    <div class="core-header-panel"><!-- Polymer core element -->
 
-   
-    <!-- current market price -->
+      <div class="core-header">
+        Price Tally
+      </div>
 
-
-    <!-- Polymer core element -->
-    <div class="core-header-panel">
-    <div class="core-header">Price Tally</div>
       <div class="content">
-            Market Price USD: <%= @parsed_response["market_price_usd"] %><br />
-      <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
-        priceUSD = "<%= @parsed_response["market_price_usd"] %>"
-      <% end %>
+        <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+          priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+        <% end %>
+        Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
+        <button onclick="toggleBitcoin()">Bitcoin</button>
+        <button onclick="toggleDogecoin()">Dogecoin</button>
+        <br />
+        <button class="togglePrintAmt" onclick="toggleBtcPrintAmt()">Toggle Bitcoin Display Amount</button>
+        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
 
-    Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
-    <button onclick="toggleBitcoin()">Bitcoin</button>
-    <button onclick="toggleDogecoin()">Dogecoin</button>
-    
+        <p id="grandtotal" >
+          <!-- Keeps a running tab of USD grand toatakamount -->
+        </p>
+        <div id="output"class="btclist">
+          <!-- Lists all transactions in Bitcoins -->
+        </div>
+        <div id="dollar"class="btclist">
+          <!-- lists all transactions in USD amount -->
+        </div>
+      </div><!-- end content -->
 
-    <!-- displays the price -->
-      <p id="grandtotal" ></p>
-    <div id="output"class="btclist">
-    </div>
-      <div id="dollar"class="btclist">
-    </div>
-
-    </div>
-  </div></div>
-
-  
-
-    <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
-      priceUSD = "<%= @parsed_response["market_price_usd"] %>"
-    <% end %>
-
+    </div><!-- end core-header-panel -->
+  </div><!-- end col-md-3 -->
   <div class="col-md-7">
-     <div class="core-header-panel2">
-    <div class="core-header">Visualization</div>
-      <div class="content">
+    <div class="core-header-panel2">
+      <div class="core-header">
+        Visualization
+      </div>
 
-    <div id="myDemo">
-      <%#= javascript_include_tag "moneyFalling.js" %>
-      <script type="text/javascript" src="/assets/moneyFalling.js"></script>
-          </div>
-    </div>
-  </div>
-    </div>
-  </div><!-- END OF D3 BARCHART -->
-</div>
+      <div class="content">
+        <div id="myDemo">
+          <script type="text/javascript" src="/assets/moneyFalling.js"></script>
+        </div>
+      </div> 
+
+    </div><!-- end core-header-panel2 -->
+  </div><!-- end col-md-7 -->
+</div><!-- end row -->

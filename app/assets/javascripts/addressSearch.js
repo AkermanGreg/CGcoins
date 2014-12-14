@@ -10,15 +10,14 @@ $(document).ready(function(){
     // });
     
     $.ajax({
-    url: 'https://blockchain.info/inv/a16ad7e30af4c504097602c9e983038c305640fdf9158e81aca13f575c988d55?format=json',
-    dataType: 'jsonp',
-    success: function (data) {
-         $('#blockchain').append(JSON.stringify(data));
-         console.log(data.)
+      url: 'https://blockchain.info/inv/a16ad7e30af4c504097602c9e983038c305640fdf9158e81aca13f575c988d55?format=json',
+      dataType: 'jsonp',
+      success: function (data) {
+           $('#blockchain').append(JSON.stringify(data));
+           console.log(data);
 
-    },
-    error: function () {alert("failed")}
-});
-
+      },
+      error: function () {alert("failed");}
+    });
   });
 });
