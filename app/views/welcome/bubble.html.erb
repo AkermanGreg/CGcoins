@@ -9,9 +9,9 @@
 <button class="btn btn-success " onclick="btcTokenBubble()">BitCoin token</button>
 <button class="btn btn-success " onclick="dgeTokenBubble()">DogeCoin token</button>
 
-<%#= javascript_tag do %><!-- creates a var=priceUSD for JS -->
-  priceUSD = "<%#= @parsed_response["market_price_usd"] %>"
-<%# end %>
+<%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+  priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+<% end %>
 
 <div class="content">
   <div id="heatchart">
