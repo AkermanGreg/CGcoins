@@ -23,22 +23,29 @@
         <% end %>
         Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
         <br />
-        <button class="togglePrintAmt" onclick="toggleBtcPrintAmt()">Toggle Bitcoin Display Amount</button>
-        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
+        <button class="togglePrintAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Display Amount</button>
+        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
 
         <p id="grandtotal" >
           <!-- Keeps a running tab of USD grand toatakamount -->
         </p>
-        <table>
-          <tr>
-            <td>
-              <div id="output" class="btclist"></div><!-- lists all transactions in BTC amount -->
-            </td>
-            <td>
-              <div id="dollar" class="btclist"></div><!-- lists all transactions in USD amount -->
-            </td>
-          </tr>
-        </table>
+
+        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+          <li class="active"><a href="#bitcoins" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Bitcoins</a></li>
+          <li><a href="#dollars" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Dollars</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="bitcoins">
+            <div id="output" class="btclist"></div>
+          </div>
+
+          <div class="tab-pane fade" id="dollars">
+            <div id="dollar" class="btclist">
+              <div></div>
+            </div>
+          </div>
+        </div><!-- end of myTabContent -->
+ 
       </div><!-- end content -->
     </div><!-- end core-header-panel -->
   </div><!-- end col-md-4 -->

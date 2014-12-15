@@ -12,75 +12,6 @@ var output;    // var for displaying btc transactions to screen
 var TYPE_BLOCK = "block"; // var for when a block is created
 var total = []; // array for adding the total USD ammount 
 
-  function dgeTokenBubble() { // DOGE TOKEN TEST
-    heatchart.addToken( {
-      id:'myId',
-      size: 200,
-      category:0,
-      texture: {
-        src: 'assets/dogecoin2.png'
-      }
-    });
-  }
-  function btcTokenBubble() { // BITCOIN TOKEN TEST
-    heatchart.addToken( {
-      // id:'myId',
-      size: 100,
-      category:0,
-      texture: {
-        src: 'assets/bitcoin.jpeg'
-      }
-    });
-  }
-
-//This function toggles the Bitcoin coin drop
-function toggleBitcoin() {
-  
-  if (btcBtn == false){
-    btcBtn = true;
-    console.log("BTC Tokens ON");
-  }
-  else {
-    btcBtn = false;
-    console.log("BTC Tokens OFF");
-  }
-}
-
-//This function toggles the Dogecoin coin drop
-function toggleDogecoin() {
-  if (dogeBtn == false){
-    dogeBtn = true;
-    console.log("Doge Tokens ON");
-  }
-  else {
-    dogeBtn = false;
-    console.log("Doge Tokens OFF");
-  }
-}
-
-//This function toggles the Bitcoin Print Amount display
-function toggleBtcPrintAmt() {
-  if (btcPrintAmt == false){
-    btcPrintAmt = true;
-    console.log("Print BTC");
-  }
-  else {
-    btcPrintAmt = false;
-    console.log("Stop Print BTC");
-  }
-}
-
-//This function toggles the Bitcoin Print Dollar amount display
-function toggleBtcPrintDollar() {
-  if (btcPrintDollar == false){
-    btcPrintDollar = true;
-    console.log("Print Dollars BTC");
-  }
-  else {
-    btcPrintDollar = false;
-    console.log("Stop Print Dollars BTC");
-  }
-}
 
 function init() { // fires when page is loaded
   output = document.getElementById("output"); // outputs unconfirmed btc transactions
@@ -91,7 +22,7 @@ function init() { // fires when page is loaded
 function initWebSocket() {//  init blockchain websocket (activity, blocks)
   
  ///////////////////// BITCOIN STARTS///////////////////////
-  var blockchain = new WebSocket('ws://ws.blockchain.info/inv'); //blockchain.info's web socket address
+  var blockchain = new WebSocket('wss://ws.blockchain.info/inv'); //blockchain.info's web socket address
   blockchain.onerror = function (error){ console.log('connection.onerror',error); }; // logs if an ".onerror" is a response
   blockchain.onopen = function () { // fires this function when ".onopen" response is received from blockchain's websocket
     console.log ("btc CONNECTED");
@@ -120,19 +51,18 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
           grandTotal += total[j] << 0; // adds total and sets it to grandTotal
           // console.log(grandTotal);
         
-
         // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
         // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
-        // document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD ;
+        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal * priceUSD).formatMoney(2, '.', ',') ;
 
-        // these if else sets the min and max size tokens for d3
-        if( btcOutput <= 4 ) {
-          btcOutput = 4 ;
+        // these if else sets the min size tokens for d3
+        if( response.amount <= 4 ) {
+          response.amount = 4 ;
         }
-        // else if( response.amount >= 140 ) {
-        //   response.amount = 140 ;
-        // }
     }
+
+
+
 
     // if a block is created
     else if( response.op == "block" ) {
@@ -141,7 +71,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     }
     
     if ( btcBtn == true ) {
-      btcTokenBubble(btcOutput); // this function fires when an onmessage is received
+      btcTokenBubble(response.amount); // this function fires when an onmessage is received
     }
 
   };
@@ -164,12 +94,13 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
     //   output.appendChild(pre);
     // }
 
-    // if (btcPrintDollar == true) {
-    //   var pre2 = document.createElement("p");
-    //   pre2.style.wordWrap = "break-word";
-    //   pre2.innerHTML = btcOutput * priceUSD;
-    //   dollarOut.appendChild(pre2);
-    // }
+    if (btcPrintDollar == true) { // If the dollar transaction display is turned on
+      var changeFormat = btcOutput * priceUSD; // multiply the current market price * the unconfirmed bitcoins
+      var pre2 = document.createElement("p"); // create a new <p> tag 
+      pre2.style.wordWrap = "break-word"; // syle of the new <p> tag will be wordwrapped
+      pre2.innerHTML = (changeFormat).formatMoney(2, '.', ','); // formats the btc * usd
+      dollarOut.appendChild(pre2); // sends the new <p> tag with dollar amount to the var dollarOut
+    }
   }/////// end of BITCOIN ////////
   
   ///////////////////////////////// DOGECOIN STARTS////////////////////////////////////////
@@ -292,6 +223,87 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   //     });
   //   } //////////// END OF LITECOIN /////////////
 }
+//This function toggles the Bitcoin coin drop
+function toggleBitcoin() {
+  
+  if (btcBtn == false){
+    btcBtn = true;
+    console.log("BTC Tokens ON");
+  }
+  else {
+    btcBtn = false;
+    console.log("BTC Tokens OFF");
+  }
+}
+
+//This function toggles the Dogecoin coin drop
+function toggleDogecoin() {
+  if (dogeBtn == false){
+    dogeBtn = true;
+    console.log("Doge Tokens ON");
+  }
+  else {
+    dogeBtn = false;
+    console.log("Doge Tokens OFF");
+  }
+}
+
+//This function toggles the Bitcoin Print Amount display
+function toggleBtcPrintAmt() {
+  if (btcPrintAmt == false){
+    btcPrintAmt = true;
+    console.log("Print BTC");
+  }
+  else {
+    btcPrintAmt = false;
+    console.log("Stop Print BTC");
+  }
+}
+
+//This function toggles the Bitcoin Print Dollar amount display
+function toggleBtcPrintDollar() {
+  if (btcPrintDollar == false){
+    btcPrintDollar = true;
+    console.log("Print Dollars BTC");
+  }
+  else {
+    btcPrintDollar = false;
+    console.log("Stop Print Dollars BTC");
+  }
+}
+
+Number.prototype.formatMoney = function(c, d, t){ // FORMATS THE CURRENCY WITH COMMAS AND DECIMAL PLACE
+var n = this,
+    c = isNaN(c = Math.abs(c)) ? 2 : c,
+    d = d == undefined ? "." : d,
+    t = t == undefined ? "," : t,
+    s = n < 0 ? "-" : "",
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+ // (123456789.12345).formatMoney(2, '.', ',')
+
+// function dgeTokenBubble() { // DOGE TOKEN TEST
+//   heatchart.addToken( {
+//     id:'myId',
+//     size: 200,
+//     category:0,
+//     texture: {
+//       src: 'assets/dogecoin2.png'
+//     }
+//   });
+// }
+// function btcTokenBubble() { // BITCOIN TOKEN TEST
+//   heatchart.addToken( {
+//     // id:'myId',
+//     size: 100,
+//     category:0,
+//     texture: {
+//       src: 'assets/bitcoin.jpeg'
+//     }
+//   });
+// }
 
 // fires init function when the window is loaded
 window.addEventListener("load", init, false);
