@@ -91,7 +91,7 @@ function init() { // fires when page is loaded
 function initWebSocket() {//  init blockchain websocket (activity, blocks)
   
  ///////////////////// BITCOIN STARTS///////////////////////
-  var blockchain = new WebSocket('ws://ws.blockchain.info/inv'); //blockchain.info's web socket address
+  var blockchain = new WebSocket('wss://ws.blockchain.info/inv'); //blockchain.info's web socket address
   blockchain.onerror = function (error){ console.log('connection.onerror',error); }; // logs if an ".onerror" is a response
   blockchain.onopen = function () { // fires this function when ".onopen" response is received from blockchain's websocket
     console.log ("btc CONNECTED");

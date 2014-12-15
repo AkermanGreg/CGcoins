@@ -10,50 +10,10 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 
 <div class="row">
-  <div class="col-md-4">
-    <div class="core-header-panel "><!-- Polymer core element -->
 
-      <div class="core-header">
-        <%= link_to image_tag("CGcoinlogo.png"), root_path, method: :get %>
-      </div>
-
-      <div class="content">
-        <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
-          priceUSD = "<%= @parsed_response["market_price_usd"] %>"
-        <% end %>
-        Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
-        <br />
-        <button class="togglePrintAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Display Amount</button>
-        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
-
-        <p id="grandtotal" >
-          <!-- Keeps a running tab of USD grand toatakamount -->
-        </p>
-
-        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-          <li class="active"><a href="#bitcoins" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Bitcoins</a></li>
-          <li><a href="#dollars" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Dollars</a></li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active in" id="bitcoins">
-           <div id="output" class="btclist"></div>
-        </div>
-
-        <div class="tab-pane fade" id="dollars">
-         <div id="dollar" class="btclist"></div>
-          ttest testss
-        </div>
-      </div>
- 
-      </div><!-- end content -->
-    </div><!-- end core-header-panel -->
-  </div><!-- end col-md-4 -->
-  <div class="col-md-7">
+  <div class="col-md-9">
     <div class="core-header-panel2">
       <div class="core-header">
-        <button class="btn btn-warning" onclick="toggleBitcoin()" >Bitcoin</button> 
-        <!-- <button type="button" onclick="toggleBitcoin()"class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Bitcoin Tokens OFF">Bitcoin</button> -->
-        <button class="btn btn-success " onclick="toggleDogecoin()">Dogecoin</button>
         LIVE Bitcoin Transaction
       </div>
 
@@ -64,5 +24,62 @@
       </div> 
 
     </div><!-- end core-header-panel2 -->
-  </div><!-- end col-md-7 -->
+  </div><!-- end col-md-9 -->
+
+  <div class="col-md-3">
+    <div class="core-header-panel "><!-- Polymer core element -->
+
+      <div class="core-header">
+         <button class="btn btn-warning" onclick="toggleBitcoin()" >Bitcoin</button> 
+        <!-- <button type="button" onclick="toggleBitcoin()"class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Bitcoin Tokens OFF">Bitcoin</button> -->
+        <button class="btn btn-success " onclick="toggleDogecoin()">Dogecoin</button>
+      </div>
+
+
+        
+        <!-- <button class="togglePrintAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">
+          Toggle Bitcoin Display Amount
+        </button>
+        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">
+          Toggle Bitcoin Dollar Amount
+        </button>-->
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+              priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+            <% end %>
+            Market Price USD: $<%= @parsed_response["market_price_usd"] %><!-- current market price -->
+            <p id="grandtotal" >
+            <!-- Keeps a running tab of USD grand toatakamount -->
+            </p>
+          </div>
+        </div>
+
+
+        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+          <li class="active">
+            <a href="#bitcoins" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">
+              Display BTC Amount
+            </a>
+          </li>
+          <li>
+            <a href="#dollars" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">
+              Display BTC Value
+            </a>
+          </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="bitcoins">
+           <div id="output" class="btclist"></div>
+        </div>
+
+        <div class="tab-pane fade" id="dollars">
+         <div id="dollar" class="btclist"></div>
+        </div>
+      </div>
+ 
+      </div><!-- end content -->
+    </div><!-- end core-header-panel -->
+  </div><!-- end col-md-3 -->
 </div><!-- end row -->
+
