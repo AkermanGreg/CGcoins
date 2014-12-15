@@ -12,8 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap-material-design
+ * require bootstrap-material-design
  */
+
 
  @import 'bootstrap';
 
@@ -32,8 +33,51 @@
 //   background-color: grey;
 // }
 
+html {
+  font-family: 'Slabo 27px', serif;
+}
+
+//Gold Circles menu
+#goldCircle {
+background-image: -webkit-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
+background-image: -moz-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
+background-image: -ms-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
+background-image: -o-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
+background-image: radial-gradient(circle at 30% 40%, rgb(255,255,100), rgb(0,0,0));
+
+}
+a.gold:link, a.gold:visited {
+  border: 1px solid #333333;
+  color: white;
+  text-shadow: 1px 1px 1px #444444;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  width: 107px;
+  border-radius: 60px;
+  line-height: 107px;
+  float: left;
+  text-align: center;
+  margin: 0 19px 0 19px;
+}
+
+a.gold:hover, a.gold:focus {
+  box-shadow: inset 1px 1px 10px black;
+}
+
+a.gold:active {
+  box-shadow: inset 1px 1px 40px black;
+}
+
+.goldContainer {
+  float:right;
+  margin:10px;
+  padding-bottom: 20px;
+}
+
 .btclist {
-  border: solid 1px black;
+  padding-left: 30px;
   height: 600px;
   width: 200px;
 }
@@ -63,11 +107,13 @@
 
 .core-header-panel2 {
   float: left;
-  height: 400px;
+  min-height: 400px;
+  width: 100%;
   margin: 5px;
-  box-shadow: 1px 1px 3px #292929;
+   box-shadow: 1px 1px 3px #292929;
     -webkit-box-shadow: 1px 1px 3px #292929;
     -moz-box-shadow: 1px 1px 3px #292929;
+  border: 1px solid black;
 }
 
 .core-header-panel2[mode=cover]::shadow #mainContainer {
@@ -79,7 +125,7 @@
   line-height: 60px;
   font-size: 18px;
   padding: 0 10px;
-  background-color: #4F7DC9;
+  background-color: #00FF00;
   color: #FFF;
   transition: height 0.2s;
 }
@@ -93,7 +139,7 @@
 }
 
 .content {
-  background: linear-gradient(rgb(214, 227, 231), lightblue);
+  background: #FFFFFF;
 }
 
 .img2 {

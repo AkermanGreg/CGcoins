@@ -1,8 +1,25 @@
 <h1>Block Chain Stats</h1><br />
 <script type="text/javascript" src="/assets/addressSearch.js"></script> 
-<input type="text"></input>
-<button id="addressSearch"></button>
+<form>
+<input type="text" name="addressSearch"></input>
+<input type="submit" id="searchSubmit">Search</input>
+</form>
 <p id="blockchain"></p>
+ <% if @show_data  && @show_data != "" %>
+Hash 160<%=@rbody["hash160"] %><br />
+Total Received: <%=@rbody["total_received"] %><br /><br />
+<% @inputs.each do |one_input| %>
+  Sequence: <%=one_input["sequence"] %><br />
+  Addr: <%=one_input["prev_out"]["addr"] %><br /><br />
+
+<% end %>
+
+
+
+<br />
+<% end %>
+
+
 
 <div class="row">
   <div class="col-md-4"></div>
@@ -11,16 +28,16 @@
     <table class="table table-striped">
       <tr>
         <!-- This get's Block Chain statistics --> 
-        <td>Market Price USD:</td><td> <%= @parsed_response["market_price_usd"] %></td>
+        <td>Market Price USD:</td><td> <%#= @parsed_response["market_price_usd"] %></td>
       </tr>
       <tr>
-        <td>Hash Rate: </td><td> <%= @parsed_response["hash_rate"] %></td>
+        <td>Hash Rate: </td><td> <%#= @parsed_response["hash_rate"] %></td>
       </tr>
       <tr>
-        <td>Difficulty:</td><td> <%= @parsed_response["difficulty"] %></td>
+        <td>Difficulty:</td><td> <%#= @parsed_response["difficulty"] %></td>
       </tr>
       <tr>
-        <td>Total BTC Sent:</td><td> <%= @parsed_response["total_btc_sent"] %></td>
+        <td>Total BTC Sent:</td><td> <%#= @parsed_response["total_btc_sent"] %></td>
       </tr>
     </table>
   </div>

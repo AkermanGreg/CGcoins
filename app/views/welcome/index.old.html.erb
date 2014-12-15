@@ -1,0 +1,54 @@
+
+
+<!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
+<script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
+
+
+
+<!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
+<script type="text/javascript" src="/assets/app.js"></script> 
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+ 
+        <div id="myDemo">
+          <script type="text/javascript" src="/assets/moneyFalling.js"></script>
+        </div>
+  
+    
+  </div><!-- end col-md-7 -->
+  <div class="col-md-2">
+        <p id="grandtotal" >
+          <!-- Keeps a running tab of USD grand toatakamount -->
+        </p>
+       <button class="btn btn-warning" onclick="toggleBitcoin()" >Bitcoin</button> 
+        <!-- <button type="button" onclick="toggleBitcoin()"class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Bitcoin Tokens OFF">Bitcoin</button> -->
+        <button class="btn btn-success " onclick="toggleDogecoin()">Dogecoin</button>
+        LIVE Bitcoin Transaction
+        <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
+          priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+        <% end %>
+        Market Price USD: <%= @parsed_response["market_price_usd"] %><br /><!-- current market price -->
+        <br />
+        <button class="togglePrintAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Display Amount</button>
+        <button class="toggleBtcDollarAmt" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Toggle Bitcoin Dollar Amount</button>
+
+      
+
+        <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+          <li class="active"><a href="#bitcoins" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Bitcoins</a></li>
+          <li><a href="#dollars" data-toggle="tab" onclick="toggleBtcPrintAmt(), toggleBtcPrintDollar()">Dollars</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="bitcoins">
+           <div id="output" class="btclist"></div>
+        </div>
+
+        <div class="tab-pane fade" id="dollars">
+         <div id="dollar" class="btclist"></div>
+        </div>
+ 
+      
+  </div><!-- end col-md-4 -->
+</div><!-- end row -->
