@@ -2,7 +2,7 @@ var btcBtn = true;  // for the button to turn on/off btc tokens
 var dogeBtn = true; // for button to turn on/off dogecoin tokens
 
 var btcPrintAmt = true; // for the message that prints the amount of bitcoins traded
-var btcPrintDollar = true; // for the message that prints the dollar value of bitcoins traded
+var btcPrintDollar = false; // for the message that prints the dollar value of bitcoins traded
 
 var btcOutput; // the btc transaction amount
 var ltcOutput; // the litecoin transaction amount
