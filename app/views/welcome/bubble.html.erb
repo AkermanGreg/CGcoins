@@ -11,7 +11,12 @@
 <p id="grandtotal" >
   <!-- Keeps a running tab of USD grand toatakamount -->
 </p>
-<p id="dollar" ></p>
+<div id="dollar" >
+  <div></div><!-- required for .insertBefore -->
+</div>
+<div id="output">
+  <div></div><!-- required for .insertBefore -->
+</div>
 
 <%= javascript_tag do %><!-- creates a var=priceUSD for JS -->
   priceUSD = "<%= @parsed_response["market_price_usd"] %>"

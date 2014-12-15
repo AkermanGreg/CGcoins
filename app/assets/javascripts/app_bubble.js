@@ -7,15 +7,11 @@ var btcPrintDollar = true; // for the message that prints the dollar value of bi
 var btcOutput; // the btc transaction amount
 var ltcOutput; // the litecoin transaction amount
 var dgeOutput; // the dogecoin transaction amount
-var dollarOut; // var for displaying USD amount to screen
-var output;    // var for displaying btc transactions to screen
 var TYPE_BLOCK = "block"; // var for when a block is created
 var total = []; // array for adding the total USD ammount 
 
 
 function init() { // fires when page is loaded
-  output = document.getElementById("output"); // outputs unconfirmed btc transactions
-  dollarOut = document.getElementById("dollar"); // ouputs unconfirmed btc transactions in dollar amount
   initWebSocket(); // fires websocket function to load the websocket
 }
 
@@ -87,19 +83,25 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
       }
     });
 
-    // if (btcPrintAmt == true) {
-    //   var pre = document.createElement("p");
-    //   pre.style.wordWrap = "break-word";
-    //   pre.innerHTML = btcOutput;
-    //   output.appendChild(pre);
-    // }
+     if (btcPrintAmt == true) {
+      var output = document.getElementById("output"); // outputs unconfirmed btc transactions
+      var pre = document.createElement("p");
+      var theFirstChild = output.firstChild;
+
+      pre.style.wordWrap = "break-word";
+      pre.innerHTML = btcOutput + " BTC";
+      output.insertBefore(pre, theFirstChild);
+    }
 
     if (btcPrintDollar == true) { // If the dollar transaction display is turned on
       var changeFormat = btcOutput * priceUSD; // multiply the current market price * the unconfirmed bitcoins
-      var pre2 = document.createElement("p"); // create a new <p> tag 
+      var dollarOut = document.getElementById("dollar");
+      var theFirstChild = dollarOut.firstChild;
+      var pre2 = document.createElement("p"); // create a new <p> tag
+
       pre2.style.wordWrap = "break-word"; // syle of the new <p> tag will be wordwrapped
-      pre2.innerHTML = (changeFormat).formatMoney(2, '.', ','); // formats the btc * usd
-      dollarOut.appendChild(pre2); // sends the new <p> tag with dollar amount to the var dollarOut
+      pre2.innerHTML = "$ " + (changeFormat).formatMoney(2, '.', ','); // formats the btc * usd
+      dollarOut.insertBefore(pre2, theFirstChild); // sends the new <p> tag with dollar amount to the var dollarOut
     }
   }/////// end of BITCOIN ////////
   
