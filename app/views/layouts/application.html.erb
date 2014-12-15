@@ -3,15 +3,15 @@
 <head>
   <title>CGcoin</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <link href="/assets/bootstrap-material-design/ripples.css?body=1" media="all" rel="stylesheet" />
+  <!--<link href="/assets/bootstrap-material-design/ripples.css?body=1" media="all" rel="stylesheet" />
   <link href="/assets/bootstrap-material-design/snackbar.css?body=1" media="all" rel="stylesheet" />
   <link href="/assets/bootstrap-material-design/material-wfont.css?body=1" media="all" rel="stylesheet" />
-  <link href="/assets/bootstrap-material-design/index.css?body=1" media="all" rel="stylesheet" />
+  <link href="/assets/bootstrap-material-design/index.css?body=1" media="all" rel="stylesheet" /> -->
 
   <%= javascript_include_tag 'application' %>
-  <script src="/assets/bootstrap-material-design/ripples.js?body=1"></script>
+  <!---<script src="/assets/bootstrap-material-design/ripples.js?body=1"></script>
   <script src="/assets/bootstrap-material-design/snackbar.js?body=1"></script>
-  <script src="/assets/bootstrap-material-design/index.js?body=1"></script>
+  <script src="/assets/bootstrap-material-design/index.js?body=1"></script> -->
  
   <%= csrf_meta_tags %>
 
@@ -20,10 +20,10 @@
 
   <!-- BOOTSTRAP LIBRARY LINK -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Slabo+27px|Open+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body>
-
-<nav class="navbar navbar-inverse" role="navigation">
+<body> 
+  <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid-custom">
   <div class="navbar-width"> <!-- div to center -->
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -81,7 +81,15 @@
   </div>
   </div><!-- /.container-fluid -->
 </nav>
-<%= yield %>
+
+<!-- <div class="goldContainer"> -->
+  <%#= link_to "Stats", stats_path, :class => "gold", :id => "goldCircle" %>
+  <%#= link_to "Exchange", exchange_path, :class => "gold", :id => "goldCircle" %>
+  <%#= link_to "Charts", charts_path, :class => "gold", :id => "goldCircle" %>
+  <%#= link_to "Bubble Chart", bubble_path, :class => "gold", :id => "goldCircle" %>
+<!-- </div>-->
+
+  <%= yield %>
 
 </body>
 </html>
