@@ -30,7 +30,7 @@ mySettings = {
         //   size:{original:15,minimum:3}
         // },
         suspension:{
-          decay:{power:1.01}
+          decay:{power:1.001}
         }
       },
       options:{

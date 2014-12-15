@@ -126,12 +126,12 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         // document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal.toString().match(/^\d+(?:\.\d{0,2})?/)) * priceUSD ;
 
         // these if else sets the min and max size tokens for d3
-        if( response.amount <= 4 ) {
-          response.amount = 4 ;
+        if( btcOutput <= 4 ) {
+          btcOutput = 4 ;
         }
-        else if( response.amount >= 140 ) {
-          response.amount = 140 ;
-        }
+        // else if( response.amount >= 140 ) {
+        //   response.amount = 140 ;
+        // }
     }
 
     // if a block is created
