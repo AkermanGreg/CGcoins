@@ -1,7 +1,7 @@
 
   mySettings = {
-    width:900, // canvas size
-    height:700, // canvas size
+    width:950, // canvas size
+    height:553, // canvas size
 
     data: {
       "model":[ {label:"Column B"} ],

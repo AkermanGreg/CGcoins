@@ -33,57 +33,23 @@
 //   background-color: grey;
 // }
 
-html {
-  font-family: 'Slabo 27px', serif;
-}
+// html {
+//   font-family: 'Slabo 27px', serif;
+// }
+// body {
 
-//Gold Circles menu
-#goldCircle {
-background-image: -webkit-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
-background-image: -moz-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
-background-image: -ms-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
-background-image: -o-radial-gradient(30% 40%, rgb(255,255,100), rgb(0,0,0));
-background-image: radial-gradient(circle at 30% 40%, rgb(255,255,100), rgb(0,0,0));
-
-}
-a.gold:link, a.gold:visited {
-  border: 1px solid #333333;
-  color: white;
-  text-shadow: 1px 1px 1px #444444;
-  letter-spacing: 0.05em;
-  font-weight: bold;
-  text-decoration: none;
-  display: block;
-  width: 107px;
-  border-radius: 60px;
-  line-height: 107px;
-  float: left;
-  text-align: center;
-  margin: 0 19px 0 19px;
-}
-
-a.gold:hover, a.gold:focus {
-  box-shadow: inset 1px 1px 10px black;
-}
-
-a.gold:active {
-  box-shadow: inset 1px 1px 40px black;
-}
-
-.goldContainer {
-  float:right;
-  margin:10px;
-  padding-bottom: 20px;
-}
+// }
 
 .btclist {
   padding-left: 30px;
-  height: 600px;
+  height: 300px;
   width: 200px;
 }
-.navbar-width {
-  width: 800px;
-  left: 0;
+.btn-center {
+  text-align: center;
+  margin: auto;
+}
+.display-grand {
   text-align: center;
   margin: auto;
 }
@@ -91,55 +57,21 @@ a.gold:active {
 .core-header-panel {
   float: left;
   width: 100%;
-  min-height: 400px;
+  height: 100%;
   margin: 5px;
-  box-shadow: 1px 1px 3px #292929;
-    -webkit-box-shadow: 1px 1px 3px #292929;
-    -moz-box-shadow: 1px 1px 3px #292929;
-  border: 1px solid black;
+
+  // border: 1px solid black;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.core-header-panel[mode=cover]::shadow #mainContainer {
-  left: 70px;
-}
-
-.core-header-panel2 {
-  float: left;
-  min-height: 400px;
-  width: 100%;
-  margin: 5px;
-   box-shadow: 1px 1px 3px #292929;
-    -webkit-box-shadow: 1px 1px 3px #292929;
-    -moz-box-shadow: 1px 1px 3px #292929;
-  border: 1px solid black;
-}
-
-.core-header-panel2[mode=cover]::shadow #mainContainer {
-  left: 70px;
-}
-
-.core-header {
-  height: 60px;
-  line-height: 60px;
-  font-size: 18px;
-  padding: 0 10px;
-  background-color: #00FF00;
-  color: #FFF;
-  transition: height 0.2s;
-}
-
-.core-header.tall {
-  height: 180px;
-}
-
-.core-header.medium-tall {
-  height: 120px;
-}
-
-.content {
-  background: #FFFFFF;
+.col-md-3 {
+  background-image: linear-gradient(#dbddde, #898c90);
+  background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
+  box-shadow: 1px 1px 3px #292929;
+  -webkit-box-shadow: 1px 1px 3px #292929;
+  -moz-box-shadow: 1px 1px 3px #292929;
+  padding: 2px;
 }
 
 .img2 {
