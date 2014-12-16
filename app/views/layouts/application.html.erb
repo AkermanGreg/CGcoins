@@ -88,8 +88,16 @@
   <%#= link_to "Charts", charts_path, :class => "gold", :id => "goldCircle" %>
   <%#= link_to "Bubble Chart", bubble_path, :class => "gold", :id => "goldCircle" %>
 <!-- </div>-->
-
+<!-- This is a form, uses the stats_path, it passes a parameter :addressSearch for the search -->
+<%= form_tag(stats_path, method: "get") do %>
+  <%= label_tag(:addressSearch, "Search for:") %>
+  <%= text_field_tag(:addressSearch,nil, placeholder: "Enter a Bitcoin Address Here!") %>
+  <%= submit_tag("Search") %>
+<% end %>
   <%= yield %>
+
+
+
 
 </body>
 </html>

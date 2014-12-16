@@ -13,7 +13,7 @@ class ExchangeController < ApplicationController
     #@stats = Blockchain::get_statistics()
   end
 
-     @response = HTTParty.get("https://www.okcoin.com/api/v1/trades.do?since=100?desc")
+     @response = HTTParty.get("https://www.okcoin.com/api/v1/trades.do?since=500?desc")
      #@response = HTTParty.get("https://cex.io/api/trade_history/GHS/BTC")
     @parsed_response = JSON.parse(@response.body)
     #@limited_response = @parsed_response
