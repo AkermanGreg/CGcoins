@@ -12,6 +12,8 @@ var total = []; // array for adding the total USD ammount
 
 
 function init() { // fires when page is loaded
+  document.getElementsByClassName("btn btn-default")[0].disabled = true;
+  document.getElementsByClassName("btn btn-default")[1].disabled = true;
   initWebSocket(); // fires websocket function to load the websocket
 }
 
@@ -22,8 +24,15 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   blockchain.onerror = function (error){ console.log('connection.onerror',error); }; // logs if an ".onerror" is a response
   blockchain.onopen = function () { // fires this function when ".onopen" response is received from blockchain's websocket
     console.log ("btc CONNECTED");
+    document.getElementsByClassName("btn btn-default")[0].style.background = "#E6E6E6";
+    document.getElementsByClassName("btn btn-default")[0].innerHTML = "Bitcoin OFF";
+
+
     blockchain.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribes to uncofirmed activity
     blockchain.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribes to new blocks
+    document.getElementsByClassName("btn btn-default")[0].style.background = "#fce271";
+    document.getElementsByClassName("btn btn-default")[0].innerHTML = "Bitcoin ON";
+    document.getElementsByClassName("btn btn-default")[0].disabled = false;
   };
 
  
@@ -107,8 +116,18 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   
   ///////////////////////////////// DOGECOIN STARTS////////////////////////////////////////
   var dogecoin = new WebSocket('wss://ws.dogechain.info/inv');
-  dogecoin.onerror = function (error){ console.log('connection.onerror',error); };
+  dogecoin.onerror = function (error){
+    document.getElementsByClassName("btn btn-default")[1].style.background = "#E6E6E6";
+    document.getElementsByClassName("btn btn-default")[1].innerHTML = "DogeCoin OFF";
+
+    console.log('connection.onerror',error);
+  };
+
   dogecoin.onopen = function () {
+    document.getElementsByClassName("btn btn-default")[1].style.background = "#B7E224";
+    document.getElementsByClassName("btn btn-default")[1].innerHTML = "DogeCoin ON";
+    document.getElementsByClassName("btn btn-default")[1].disabled = false;
+
     console.log ("Doge Coin CONNECTED");
     dogecoin.send( JSON.stringify( {"op":"unconfirmed_sub"} ) );  //  subscribe to uncofirmed activity
     dogecoin.send( JSON.stringify( {"op":"blocks_sub"} ) );   //  subscribe to new blocks
@@ -227,25 +246,36 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 }
 //This function toggles the Bitcoin coin drop
 function toggleBitcoin() {
-  
+
   if (btcBtn == false){
     btcBtn = true;
+    document.getElementsByClassName("btn btn-default")[0].style.background = "#fce271";
+    document.getElementsByClassName("btn btn-default")[0].innerHTML = "Bitcoin ON";
+
     console.log("BTC Tokens ON");
   }
   else {
     btcBtn = false;
+    document.getElementsByClassName("btn btn-default")[0].style.background = "#E6E6E6";
+    document.getElementsByClassName("btn btn-default")[0].innerHTML = "Bitcoin OFF";
+
     console.log("BTC Tokens OFF");
   }
 }
 
 //This function toggles the Dogecoin coin drop
 function toggleDogecoin() {
+
   if (dogeBtn == false){
     dogeBtn = true;
+    document.getElementsByClassName("btn btn-default")[1].style.background = "#B7E224";
+    document.getElementsByClassName("btn btn-default")[1].innerHTML = "DogeCoin ON";
     console.log("Doge Tokens ON");
   }
   else {
     dogeBtn = false;
+    document.getElementsByClassName("btn btn-default")[1].style.background = "#E6E6E6";
+    document.getElementsByClassName("btn btn-default")[1].innerHTML = "DogeCoin OFF";
     console.log("Doge Tokens OFF");
   }
 }
@@ -283,29 +313,7 @@ var n = this,
     i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
     j = (j = i.length) > 3 ? j % 3 : 0;
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
- };
- // (123456789.12345).formatMoney(2, '.', ',')
-
-// function dgeTokenBubble() { // DOGE TOKEN TEST
-//   heatchart.addToken( {
-//     id:'myId',
-//     size: 200,
-//     category:0,
-//     texture: {
-//       src: 'assets/dogecoin2.png'
-//     }
-//   });
-// }
-// function btcTokenBubble() { // BITCOIN TOKEN TEST
-//   heatchart.addToken( {
-//     // id:'myId',
-//     size: 100,
-//     category:0,
-//     texture: {
-//       src: 'assets/bitcoin.jpeg'
-//     }
-//   });
-// }
+ }; // sample (123456789.12345).formatMoney(2, '.', ',')
 
 // fires init function when the window is loaded
 window.addEventListener("load", init, false);

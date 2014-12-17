@@ -1,6 +1,6 @@
 mySettings = {
-      width:1300,
-      height:800,
+      width:900,
+      height:600,
       chart:{
           type:"heapchart"
       },
