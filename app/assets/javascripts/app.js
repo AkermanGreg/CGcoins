@@ -65,7 +65,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
         // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
         // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
-        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal * priceUSD).formatMoney(2, '.', ',');
+        document.getElementById("grandtotal").innerHTML = "Running Total: $" + (grandTotal * priceUSD).formatMoney(2, '.', ',');
 
         // these if else sets the min and max size tokens for d3
         if( response.amount <= 4 ) {

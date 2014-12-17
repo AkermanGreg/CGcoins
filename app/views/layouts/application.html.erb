@@ -22,16 +22,9 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Slabo+27px|Open+Sans' rel='stylesheet' type='text/css'>
 </head>
-<body> 
-<%= form_tag(stats_path, method: "get") do %>
-  <%= label_tag(:addressSearch, "Search for:") %>
-  <%= text_field_tag(:addressSearch,nil, placeholder: "Enter a Bitcoin Address Here!") %>
-  <%= submit_tag("Search") %>
-<% end %>
+<body>
+
   <%= yield %>
-
-
-
 
 </body>
 </html>
