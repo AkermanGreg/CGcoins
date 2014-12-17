@@ -15,10 +15,15 @@ class StatsController < ApplicationController
       myURL = myURL + "?format=json"
       response = HTTParty.get(myURL)
       @rbody = JSON.parse(response.body)
-      @inputs = @rbody["txs"][0]["inputs"]
+      #@inputs = @rbody["txs"][0]["inputs"]
+
+
+      @trans = @rbody["txs"]
+
       @outs = @rbody["txs"][0]["out"]
       @inputsBottom = @rbody["txs"][1]["inputs"]
       @outsBottom = @rbody["txs"][1]["out"]
+      @address = @rbody["address"]
 
     end
   rescue

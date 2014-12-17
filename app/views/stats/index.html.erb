@@ -1,150 +1,110 @@
 <!-- Multiply satoshi by the market price and divide it by 100,000,000 -->
+<% if @show_data && @show_data != "" %> 
+<% address = @rbody["address"] %>
 <% thePriceTotal = @rbody["total_received"] * @parsed_response["market_price_usd"] / 100000000 %>
+<% end %>
 <h1>Block Chain Stats</h1><br />
 
 <div class="row"> <!-- Start of first row -->
-  <div class="col-md-6">  <!-- Start of col-md-6 -->
+  <div class="col-md-1"></div>
+  <div class="col-md-5">  <!-- Start of col-md-6 -->
     <!-- Only show the results of the api call if show_data exists and is not empty -->
     <% if @show_data && @show_data != "" %> 
-        <table class="table table-striped">
-          <tr>
-            <td colspan="2"><strong>Summary</strong></td>
-          </tr>
-          <tr>
-            <td>Hash 160</td>
-            <td><%=@rbody["hash160"] %></td>
-          </tr>
-          <tr>
-            <td>Address</td>
-            <td><%=@rbody["address"] %></td>
-          </tr>
-        </table>
+    <table class="table table-striped">
+      <tr>
+        <td colspan="2"><strong>Summary</strong></td>
+      </tr>
+      <tr>
+        <td>Hash 160</td>
+        <td><%=@rbody["hash160"] %></td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td><%=@rbody["address"] %></td>
+      </tr>
+    </table>
     <% end %>
     <%= @customError %>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-5">
    <!-- Only show the results of the api call if show_data exists and is not empty -->
-    <% if @show_data && @show_data != "" %> 
-        <table class="table table-striped">
-          <tr>
-            <td colspan="2"><strong>Transactions</strong></td>
-          </tr>
-          <tr>
-            <td>Number of Transactions</td>
-            <td><%=@rbody["n_tx"] %></td>
-          </tr>
-          <tr>
-            <td>Total Received</td>
-            <td>
-               <%=number_to_currency(thePriceTotal) %>
-            </td>
-          </tr>
-          <tr>
-            <td>Final Balance</td>
-            <td><%=@rbody["final_balance"] %></td>
-          </tr>
-        </table>
-        
-          <% end %>
-        </div><!-- Let's end col-md-6 -->
-      </div> <!-- Let's end row here -->
+   <% if @show_data && @show_data != "" %> 
+   <table class="table table-striped">
+    <tr>
+      <td colspan="2"><strong>Transactions</strong></td>
+    </tr>
+    <tr>
+      <td>Number of Transactions</td>
+      <td><%=@rbody["n_tx"] %></td>
+    </tr>
+    <tr>
+      <td>Total Received</td>
+      <td>
+       <%=number_to_currency(thePriceTotal) %>
+     </td>
+   </tr>
+   <tr>
+    <td>Final Balance</td>
+    <td><%=@rbody["final_balance"] %></td>
+  </tr>
+</table>
 
-      <!-- We are starting a new row here -->
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <tr>
-              <td colspan="3">
-                <strong>Transactions</strong>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <% if @show_data && @show_data != "" %> 
-                Transaction Hash:<%=@rbody["txs"][0]["hash"] %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <% if @show_data && @show_data != "" %> 
-                <% @inputs.each do |i| %>
-                <i>Sender:</i> <%= i["prev_out"]["addr"] %><br />
-                <% end %>
-                <% end %>
-              </td>
-              <td>
-               <% if @show_data && @show_data != "" %> 
+<% end %>
+</div><!-- Let's end col-md-6 -->
+<div class="col-md-1"></div>
+</div> <!-- Let's end row here -->
 
-               <% @outs.each do |i| %>
-               <i>Receiver:</i> <%= i["addr"] %><br />
-               <% end %>
-               <% end %>
-              </td>
-              <td>
-               <% if @show_data && @show_data != "" %> 
+<!-- We are starting a new row here -->
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <table class="table table-striped">
+      <tr>
+        <td colspan="3">
+          <strong>Transactions</strong>
+        </td>
+      </tr>
 
-               <% @outs.each do |i| %>
-               <%= number_to_currency(i["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
-               <% end %>
-               <% end %>
-             </td>
+      <% if @show_data && @show_data != "" %> 
+
+      <% @trans.each do |one_trans| %>
+      <tr>
+        <td>
+          <br /> TRANSACTION
+          <br /> Hash: <%=one_trans["hash"] %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+         <br /> Senders<br />
+         <% one_trans["inputs"].each do |one_input| %>
+
+         <i> Sender:</i> <%= one_input["prev_out"]["addr"] %><br />
+
+         <% end %>
+       </td>
+       <td>
 
 
-           </tr>
+         <br />---Transaction Receivers---<br />
+         <% one_trans["out"].each do |one_out| %>
+
+         <i>Receiver:</i> <%= one_out["addr"] %> - <%= number_to_currency(one_out["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
+
+         <% end %>
+       </td>
+     </tr>
+     <% end %>
+     <% end %>
 
 
-         </table>
-       </div>
-     </div>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <tr>
-              <td colspan="3">
-                <strong>Transactions</strong>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">
-                <% if @show_data && @show_data != "" %> 
-                Transaction Hash:<%=@rbody["txs"][1]["hash"] %>
-                <% end %>
-              </td>
-            </tr>
-             <tr>
-              <td>
-                <% if @show_data && @show_data != "" %> 
-                <% @inputsBottom.each do |i| %>
-                <i>Sender:</i> <%= i["prev_out"]["addr"] %><br />
-                <% end %>
-                <% end %>
-              </td>
-              <td>
-               <% if @show_data && @show_data != "" %> 
-
-               <% @outsBottom.each do |i| %>
-               <i>Receiver:</i> <%= i["addr"] %><br />
-               <% end %>
-               <% end %>
-              </td>
-              <td>
-               <% if @show_data && @show_data != "" %> 
-
-               <% @outsBottom.each do |i| %>
-               <%= number_to_currency(i["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
-               <% end %>
-               <% end %>
-             </td>
 
 
-           </tr>
-
-
-         </table>
-       </div>
-     </div>
-
+   </table>
+ </div>
+ <div class="col-md-1"></div>
+</div>
 
 
 
@@ -154,20 +114,5 @@
 
 <br /><br /><br />
 
-    <table class="table table-striped">
-      <tr>
-        <!-- This get's Block Chain statistics --> 
-        <td>Market Price USD:</td><td> <%= @parsed_response["market_price_usd"] %></td>
-      </tr>
-      <tr>
-        <td>Hash Rate: </td><td> <%#= @parsed_response["hash_rate"] %></td>
-      </tr>
-      <tr>
-        <td>Difficulty:</td><td> <%#= @parsed_response["difficulty"] %></td>
-      </tr>
-      <tr>
-        <td>Total BTC Sent:</td><td> <%#= @parsed_response["total_btc_sent"] %></td>
-      </tr>
-    </table>
   </div>
-<%= @formVar %>
+
