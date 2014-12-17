@@ -36,45 +36,47 @@
 html, body {
   height: 100%;
 }
-.active {
+.active { // light grey for active tab
   border: 1px solid #898C90;
   }
-.btclist {
+.btclist { // the div is the running list of all the transaction
   font-family: 'Slabo', serif;
   padding-left: 30px;
   height: 355px;
   width: 200px;
   box-sizing: border-box;
 }
-.btn-center {
+.btn-center { // centers the buttons at the top of the page
   font-family: 'Slabo', serif;
   text-align: center;
   margin: auto;
   padding: 5px;
 }
-.donate {
+.donate { // sets our dontate address to the bottom and centers
   font-family: 'Slabo', serif;
   clear: both;
   text-align: center;
   margin: auto;
 }
-.center {
+.center { // centers stuff inside the div with MARKET PRICE USD
   font-family: 'Slabo', serif;
   text-align: center;
   margin: auto;
 }
-.core-header-panel {
+.core-header-panel { // this sits just inside the col-3 div
   float: left;
   width: 100%;
   height: 100%;
   margin: 5px;
   overflow-x: hidden;
 }
-.col-md-9 {
+.col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
-
 }
-.col-md-3 {
+.content { // the d3 model sets inside this z-index 
+  z-index: 1;
+}
+.col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
   background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
   // box-shadow: 1px 1px 3px #292929;
@@ -85,35 +87,34 @@ html, body {
   padding-left: 5px;
   height:650px;
 }
-.img2 {
+.img2 { // for the log padding
   padding-top: 30px;
   padding-right: 10px;
 }
-.rails-link {
+.rails-link { // for the links to the chart, bubble, and gravity pages below the logo
   padding: 5px; 
   display: inline-block;
 }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover{
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover{ // for the tabs 
   color: #555555;
   background-color: #DADCDD;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
 }
-.nav > li > a:hover, .nav > li > a:focus {
-text-decoration: none;
+.nav > li > a:hover, .nav > li > a:focus { // for the tabs on:hovertext-decoration: none;
 background-color: #939393;
 }
 
-a:link { 
+a:link { // for the link colors
   color: #791FE0;
 }
-a:visited { 
+a:visited { // link colors
   color: #791FE0;
 }
-a:hover { 
+a:hover { // link colors
   color: #CCCCCC;
 }
-a:active { 
+a:active { // link colors
   color: #791FE0;
 }
