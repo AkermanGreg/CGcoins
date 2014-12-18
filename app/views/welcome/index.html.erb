@@ -41,6 +41,7 @@
             <%= link_to "Charts", exchange_path %>
           </strong>
         </div>
+        |
         <div class="rails-link">
         <strong>
           <%= link_to "Bubble Chart", bubble_path %>
@@ -58,12 +59,12 @@
 
       <div class="center">
         
-          <h4>Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
+          <h4>BTC Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
       
       <div>
 
       <div id="grandtotal" class="center">
-          Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
+          BTC Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
       </div>
 
       <ul class="nav nav-tabs" style="margin-bottom: 15px;">

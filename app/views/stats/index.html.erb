@@ -1,106 +1,95 @@
-<!-- Multiply satoshi by the market price and divide it by 100,000,000 -->
-<% if @show_data && @show_data != "" %> 
-<% address = @rbody["address"] %>
-<% thePriceTotal = @rbody["total_received"] * @parsed_response["market_price_usd"] / 100000000 %>
-<% @IOlabel = "UNKNOWN" %>
-<% end %>
-<h1>Block Chain Stats</h1><br />
 
-
-<div class="row"> <!-- Start of first row -->
-  <div class="col-md-1"></div>
-  <div class="col-md-5">  <!-- Start of col-md-6 -->
-    <!-- Only show the results of the api call if show_data exists and is not empty -->
+<div class="row" style="font-family: 'Roboto', sans-serif;">
+  <div class="col-md-9" style="background-color: white;">
+    <!-- Only show if show_data exists and is not blank -->
     <% if @show_data && @show_data != "" %> 
-    <table class="table table-striped">
-      <tr>
-        <td colspan="2"><strong>Summary</strong></td>
-      </tr>
-      <tr>
-        <td>Hash 160</td>
-        <td><%=@rbody["hash160"] %></td>
-      </tr>
-      <tr>
-        <td>Address</td>
-        <td><%=@rbody["address"] %></td>
-      </tr>
-    </table>
+      <% address = @rbody["address"] %>
+      <!-- the PriceTotal is the satoshi multiplied by the market price, divided by 100000000 -->
+      <% thePriceTotal = @rbody["total_received"] * @parsed_response["market_price_usd"] / 100000000 %>
+      <!-- When the page loads, IOlabel is UNKNOWN -->
+      <% @IOlabel = "UNKNOWN" %>
     <% end %>
+    <h1>Block Chain Stats for- <strong><%=@rbody["address"] %></strong></h1>
     <%= @customError %>
-  </div>
-  <div class="col-md-5">
-   <!-- Only show the results of the api call if show_data exists and is not empty -->
-   <% if @show_data && @show_data != "" %> 
-   <table class="table table-striped">
-    <tr>
-      <td colspan="2"><strong>Transactions</strong></td>
-    </tr>
-    <tr>
-      <td>Number of Transactions</td>
-      <td><%=@rbody["n_tx"] %></td>
-    </tr>
-    <tr>
-      <td>Total Received</td>
-      <td>
-       <%=number_to_currency(thePriceTotal) %>
-     </td>
-   </tr>
-   <tr>
-    <td>Final Balance</td>
-    <td><%=@rbody["final_balance"] %></td>
-  </tr>
-</table>
+    <div class="row"> <!-- Start of first row -->
+      <div class="col-md-6">  <!-- Start of col-md-6 -->
+        <!-- Only show the results of the api call if show_data exists and is not empty -->
+        <% if @show_data && @show_data != "" %> 
+          <!-- This table displays the summary information -->
+          <table class="table table-striped">
+            <tr>
+              <td colspan="2"><strong>Summary</strong></td>
+            </tr>
+            <tr>
+              <td>Hash 160</td>
+              <td><%=@rbody["hash160"] %></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td><%=@rbody["address"] %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <!-- Only show the results of the api call if show_data exists and is not empty -->
+        <% if @show_data && @show_data != "" %> 
+          <table class="table table-striped">
+            <tr>
+              <td colspan="2"><strong>Transactions</strong></td>
+            </tr>
+            <tr>
+              <td>Number of Transactions</td>
+              <td><%=@rbody["n_tx"] %></td>
+            </tr>
+            <tr>
+              <td>Total Received</td>
+              <td><%=number_to_currency(thePriceTotal) %></td>
+            </tr>
+            <tr>
+              <td>Final Balance</td>
+              <td><%=@rbody["final_balance"] %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div><!-- Let's end col-md-6 -->
+    </div> <!-- Let's end row here -->
 
-<% end %>
-</div><!-- Let's end col-md-6 -->
-<div class="col-md-1"></div>
-</div> <!-- Let's end row here -->
-
-<!-- We are starting a new row here -->
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    <table class="table table-striped">
-      <tr>
-        <td colspan="3">
-          <strong>Transactions</strong>
-        </td>
-      </tr>
-
-      <% if @show_data && @show_data != "" %> 
-
-      <% @trans.each do |one_trans| %>
-
-      <tr>
-        <td>
-          <br /> TRANSACTION
-          <br /> Hash: <%=one_trans["hash"] %>
-        </td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>
-         <br /> Senders<br />
-         <% @IOlabel = "" %>
-         <% one_trans["inputs"].each do |one_input| %>
-          <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
-          <% @IOlabel = "SENDER" %>
-          <strong> 
-          <% end %>
-         <i> Sender:</i> <%= one_input["prev_out"]["addr"] %>- <%= number_to_currency(one_input["prev_out"]["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
-         
-          <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
-          </strong> 
-          <% end %>
-         <% end %>
-         <br />
-         <%=  @IOlabel %>
-       </td>
-
-       <td>
-
-        
-         <br />---Transaction Receivers---<br />
+    <!-- We are starting a new row here -->
+    <div class="row" style="font-family: 'Roboto', sans-serif;">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <tr>
+            <td colspan="3"><strong>Transactions</strong></td>
+          </tr>
+          <% if @show_data && @show_data != "" %> 
+          <% @trans.each do |one_trans| %>
+          <tr>
+            <td><br /> TRANSACTION
+                <br /> Hash: <%=one_trans["hash"] %>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>-- Transaction Senders --</strong><br />
+              <% @IOlabel = "" %>
+              <% one_trans["inputs"].each do |one_input| %>
+              <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
+                <% @IOlabel = "SENDER" %>
+                <strong> 
+              <% end %>
+              <i> Sender:</i> <%= one_input["prev_out"]["addr"] %>- <%= number_to_currency(one_input["prev_out"]["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
+              <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
+                </strong> 
+              <% end %>
+              <% end %>
+              <br />
+              <%=  @IOlabel %>
+            </td>
+            <td>
+         <strong>--Transaction Receivers--</strong><br />
          <% @IOlabel = "" %>
          <% one_trans["out"].each do |one_out| %>
           <% if one_out["addr"] == @rbody["address"] %>
@@ -124,16 +113,82 @@
 
    </table>
  </div>
- <div class="col-md-1"></div>
+
 </div>
 
 
-
-
-
-
-
-<br /><br /><br />
-
   </div>
+   <div class="col-md-3">
+    <div class="core-header-panel"><!-- Polymer core element -->
+      
+      <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
+      <br>
+      <div class="center">
+        <div class="rails-link">
+          <strong>
+            <%= link_to "Charts", exchange_path %>
+          </strong>
+        </div>
+        <div class="rails-link">
+        <strong>
+          <%= link_to "Bubble Chart", bubble_path %>
+        </strong>
+        </div>
+      </div>
+      <br>
 
+      <div class="btn">
+        <%= form_tag(stats_path, method: "get") do %>
+          <%= text_field_tag :addressSearch,nil, placeholder: "Search Bitcoin Address", :class =>"btn-sm" %>
+          <%= submit_tag "Search", :class => "btn btn-default btn-sm" %>
+        <% end %>
+      </div>
+
+      <div class="center">
+        
+          <h4>Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
+      
+      <div>
+
+      <div id="grandtotal" class="center">
+          Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
+      </div>
+
+      <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+        <li class="active">
+          <a href="#bitcoins" data-toggle="tab">
+            BTC Amount
+          </a>
+        </li>
+        <li>
+          <a href="#dollars" data-toggle="tab" >
+            Dollar Value
+          </a>
+        </li>
+      </ul>
+
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="bitcoins">
+          <div id="output" class="btclist">
+            <div></div><!-- required for .insertBefore -->
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="dollars">
+          <div id="dollar" class="btclist">
+            <div></div><!-- required for .insertBefore -->
+          </div>
+        </div>
+
+      </div><!-- end of myTabContent -->
+  
+    </div><!-- end core-header-panel -->
+  </div><!-- end col-md-3 -->
+
+</div><!-- end row -->
+<div class="donate a2">
+  Donate Please<br>
+  <%= link_to"19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", "https://blockchain.info/address/19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", :class => "a2" %>
+</div>
+
+</div>

@@ -61,6 +61,7 @@ h4 {
   text-align: center;
   margin: auto;
   padding: 5px;
+  font-family: 'Enriqueta', serif;
 }
 .donate { // sets our dontate address to the bottom and centers
   font-family: 'Slabo', serif;
@@ -70,7 +71,7 @@ h4 {
 }
 .center { // centers stuff inside the div with MARKET PRICE USD
   font-family: 'Slabo', serif;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   margin: auto;
 }
@@ -83,7 +84,7 @@ h4 {
 }
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
-  overflow: hidden;
+  
 }
 .content { // the d3 model sits inside this z-index 
   z-index: 1;
@@ -97,7 +98,6 @@ h4 {
   padding-right: 10px;
   padding-left: 5px;
 
-  
 }
 .img2 { // for the log padding
   padding-top: 30px;
@@ -106,6 +106,8 @@ h4 {
 .rails-link { // for the links to the chart, bubble, and gravity pages below the logo
   padding: 5px; 
   display: inline-block;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover{ // for the tabs 
   color: #555555;
@@ -113,27 +115,36 @@ h4 {
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
+  font-size: 16px;
+  font-family: 'Oxygen', sans-serif;
 }
 .nav > li > a:hover, .nav > li > a:focus { // for the tabs on:hovertext-decoration: none;
 background-color: #939393;
 }
-
+// to reduce padding from 10px 15px to 5px 10px
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 5px 10px;
+}
 //Old Color #791FE0
+
+
 a:link { // for the link colors
   color: #791FE0;
-  font-size: 16px;
+  font-size: 20px;
 }
 a:visited { // link colors
   color: #791FE0;
-  font-size: 16px;
+  font-size: 20px;
 }
 a:hover { // link colors
   color: #CCCCCC;
-  font-size: 16px;
+  font-size: 20px;
 }
 a:active { // link colors
   color: #791FE0;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 //Defines bitcoin donate link
@@ -161,3 +172,13 @@ a.a2:active {
 #myDemo {
   background-color: #FFFFFF;
 }
+
+// .row {
+//     display: table;
+// }
+
+// [class*="col-"] {
+//     float: none;
+//     display: table-cell;
+//     vertical-align: top;
+// }
