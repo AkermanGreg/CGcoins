@@ -90,12 +90,25 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   // fires a function to drop a d3 token (message is the btc transaction size from response.amount)
   function writeToScreen(message) {
     barChart.addToken( {
-      // id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("btc-callback");
+          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+
+        },
+      },
       size: message,
       category:0,
       texture: {
         src: 'assets/bitcoin.jpeg'
-      }
+      },
     });
 
     if (btcPrintAmt == true) {
@@ -182,7 +195,20 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
   function writeToScreen2(message) {
     barChart.addToken( {
-      id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("btc-callback");
+          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+
+        },
+      },
       size: message,
       category:0,
       texture: {

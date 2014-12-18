@@ -66,9 +66,6 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         }
     }
 
-
-
-
     // if a block is created
     else if( response.op == "block" ) {
       console.log("BLOCK FOUND BLOCK FOUND BLOCK FOUND BLOCK FOUND");
@@ -84,12 +81,25 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
   function btcTokenBubble(message) {
     heatchart.addToken( {
-      // id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("btc-callback");
+          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+
+        },
+      },
       size: message,
       category:0,
       texture: {
         src: 'assets/bitcoin.jpeg'
-      }
+      },
     });
 
      if (btcPrintAmt == true) {
@@ -176,7 +186,20 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
   function dgeTokenBubble(message) {
     heatchart.addToken( {
-      id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("doge-callback");
+          pre.innerHTML = "$ " + (message).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+        },
+      },
+      // id:'myId',
       size: message,
       category:0,
       texture: {
@@ -244,6 +267,8 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   //     });
   //   } //////////// END OF LITECOIN /////////////
 }
+
+
 //This function toggles the Bitcoin coin drop
 function toggleBitcoin() {
 
