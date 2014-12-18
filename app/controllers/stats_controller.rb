@@ -1,6 +1,7 @@
 class StatsController < ApplicationController
   require 'httparty'
   def index
+    @IOlabel = ""
     @response = HTTParty.get("https://blockchain.info/stats?format=json")
     @parsed_response = JSON.parse(@response.body)
     ## searcharg is the parameter being passed
