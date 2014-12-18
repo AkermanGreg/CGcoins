@@ -194,7 +194,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("doge-callback");
-          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          pre.innerHTML = "$ " + (message).formatMoney(2, '.', ',');
           console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
         },
