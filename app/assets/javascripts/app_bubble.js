@@ -84,12 +84,30 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
   function btcTokenBubble(message) {
     heatchart.addToken( {
-      // id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("token-callback");
+          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+
+          // var textnode = document.createTextNode("Water");
+          // var item = document.getElementById("myList").childNodes[0];
+          // item.replaceChild(textnode, item.childNodes[0]);
+
+
+        },
+      },
       size: message,
       category:0,
       texture: {
         src: 'assets/bitcoin.jpeg'
-      }
+      },
     });
 
      if (btcPrintAmt == true) {
@@ -244,6 +262,8 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
   //     });
   //   } //////////// END OF LITECOIN /////////////
 }
+
+
 //This function toggles the Bitcoin coin drop
 function toggleBitcoin() {
 

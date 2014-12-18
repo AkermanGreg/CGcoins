@@ -1,6 +1,29 @@
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+// var svg = d3.select("body").append("svg")
+//         .attr("width", x)
+//         .attr("height", y)
+//         .append("g");
+
+function updateWindow(){
+    x = w.innerWidth || e.clientWidth || g.clientWidth;
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    
+    // svg.attr("width", x).attr("height", y);
+}
+window.onresize = updateWindow;
+console.log(x, y);
+
+
 mySettings = {
-      width:900,
-      height:600,
+
+      width: x,
+      height: y,
       chart:{
           type:"heapchart"
       },
