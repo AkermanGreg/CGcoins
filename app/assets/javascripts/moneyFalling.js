@@ -20,8 +20,8 @@ window.onresize = updateWindow;
 console.log(x, y);
 
   mySettings = {
-    width:950, // canvas size
-    height:616, // canvas size
+    width: x, // canvas size
+    height: y, // canvas size
 
     data: {
       "model":[ {label:"Column B"} ],
