@@ -41,11 +41,10 @@ h4 {
   font-size: 20px;
   font-weight: bold;
 }
-
 .active { // light grey for active tab
   border: 1px solid #898C90;
   border-bottom: none;
-  }
+}
 .btclist { // the div is the running list of all the transaction
   font-family: 'Slabo', serif;
   font-size: 18px;
@@ -83,10 +82,6 @@ h4 {
 }
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
-  overflow: hidden;
-}
-.content { // the d3 model sits inside this z-index 
-  z-index: 1;
 }
 .col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
@@ -95,9 +90,7 @@ h4 {
   //   -webkit-box-shadow: 1px 1px 3px #292929;
   //   -moz-box-shadow: 1px 1px 3px #292929;
   padding-right: 10px;
-  padding-left: 5px;
-
-  
+  padding-left: 5px;  
 }
 .img2 { // for the log padding
   padding-top: 30px;

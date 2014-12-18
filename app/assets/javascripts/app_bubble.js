@@ -66,9 +66,6 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         }
     }
 
-
-
-
     // if a block is created
     else if( response.op == "block" ) {
       console.log("BLOCK FOUND BLOCK FOUND BLOCK FOUND BLOCK FOUND");
