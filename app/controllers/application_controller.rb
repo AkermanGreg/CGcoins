@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   # before_filter :authorize
   #reason there are two @@ is because it is a class variable
   @@testVar = 50
+
 private
 
   def current_user

@@ -36,15 +36,24 @@
 html, body {
   height: 100%;
 }
+//Header for Market Price display
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
 .active { // light grey for active tab
   border: 1px solid #898C90;
-  }
+  border-bottom: none;
+}
 .btclist { // the div is the running list of all the transaction
   font-family: 'Slabo', serif;
-  padding-left: 30px;
+  font-size: 18px;
+  padding-left: 50px;
   height: 355px;
   width: 200px;
   box-sizing: border-box;
+  text-align:left;
+
 }
 .btn-center { // centers the buttons at the top of the page
   font-family: 'Slabo', serif;
@@ -60,6 +69,7 @@ html, body {
 }
 .center { // centers stuff inside the div with MARKET PRICE USD
   font-family: 'Slabo', serif;
+  font-size: 16px;
   text-align: center;
   margin: auto;
 }
@@ -73,19 +83,14 @@ html, body {
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
 }
-.content { // the d3 model sets inside this z-index 
-  z-index: 1;
-}
 .col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
   background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
   // box-shadow: 1px 1px 3px #292929;
   //   -webkit-box-shadow: 1px 1px 3px #292929;
   //   -moz-box-shadow: 1px 1px 3px #292929;
-  padding-bottom: 50px;
   padding-right: 10px;
-  padding-left: 5px;
-  height:650px;
+  padding-left: 5px;  
 }
 .img2 { // for the log padding
   padding-top: 30px;
@@ -106,15 +111,46 @@ html, body {
 background-color: #939393;
 }
 
+//Old Color #791FE0
 a:link { // for the link colors
   color: #791FE0;
+  font-size: 16px;
 }
 a:visited { // link colors
   color: #791FE0;
+  font-size: 16px;
 }
 a:hover { // link colors
   color: #CCCCCC;
+  font-size: 16px;
 }
 a:active { // link colors
   color: #791FE0;
+  font-size: 16px;
+}
+
+//Defines bitcoin donate link
+a.a2:link {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+a.a2:visited {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+a.a2:hover {
+  color: #CCCCCC;
+  font-size: 14px;
+}
+
+a.a2:active {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+//The canvas for the homepage is inside this div ID tag. Set to white.
+#myDemo {
+  background-color: #FFFFFF;
 }
