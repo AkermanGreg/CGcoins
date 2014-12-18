@@ -9,12 +9,18 @@
       <!-- When the page loads, IOlabel is UNKNOWN -->
       <% @IOlabel = "UNKNOWN" %>
     <% end %>
-    <h1>Block Chain Stats for- <strong><%=@rbody["address"] %></strong></h1>
-    <%= @customError %>
+   
+    <% if @show_data && @show_data != "" %> 
+    <h1>Block Chain Stats for- <strong><%=@rbody["address"] %></strong></h1><br />
+
+    <% end %>
+   
     <div class="row"> <!-- Start of first row -->
       <div class="col-md-6">  <!-- Start of col-md-6 -->
         <!-- Only show the results of the api call if show_data exists and is not empty -->
+
         <% if @show_data && @show_data != "" %> 
+
           <!-- This table displays the summary information -->
           <table class="table table-striped">
             <tr>
@@ -30,13 +36,16 @@
             </tr>
           </table>
         <% end %>
+
       </div>
       <div class="col-md-6">
+
         <!-- Only show the results of the api call if show_data exists and is not empty -->
         <% if @show_data && @show_data != "" %> 
           <table class="table table-striped">
             <tr>
               <td colspan="2"><strong>Transactions</strong></td>
+
             </tr>
             <tr>
               <td>Number of Transactions</td>
@@ -60,7 +69,7 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <tr>
-            <td colspan="3"><strong>Transactions</strong></td>
+            <td colspan="3"><strong>Transactions</strong> <%= @customError %></td>
           </tr>
           <% if @show_data && @show_data != "" %> 
           <% @trans.each do |one_trans| %>

@@ -9,18 +9,21 @@ var w = window,
 //         .attr("width", x)
 //         .attr("height", y)
 //         .append("g");
-
+var xB = x * 0.74098082;
 function updateWindow(){
+   
+
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
     
     // svg.attr("width", x).attr("height", y);
 }
 window.onresize = updateWindow;
-console.log(x, y);
+console.log(xB, y);
 
   mySettings = {
-    width: x, // canvas size
+    width: xB, // canvas size
     height: y, // canvas size
 
     data: {
