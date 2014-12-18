@@ -91,15 +91,10 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         // },
         onclick:function(token){
           var pre = document.createElement("div");
-          var tokenCallback = document.getElementById("token-callback");
+          var tokenCallback = document.getElementById("btc-callback");
           pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
           console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
-
-          // var textnode = document.createTextNode("Water");
-          // var item = document.getElementById("myList").childNodes[0];
-          // item.replaceChild(textnode, item.childNodes[0]);
-
 
         },
       },
@@ -194,7 +189,20 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
 
   function dgeTokenBubble(message) {
     heatchart.addToken( {
-      id:'myId',
+      callback:{
+        // mouseover:function(token){
+        //   document.getElementsByClassName
+        //   console.log(message);
+        // },
+        onclick:function(token){
+          var pre = document.createElement("div");
+          var tokenCallback = document.getElementById("doge-callback");
+          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          console.log(tokenCallback);
+          tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+        },
+      },
+      // id:'myId',
       size: message,
       category:0,
       texture: {
