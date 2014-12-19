@@ -103,8 +103,13 @@ h4 {
 }
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
+}
+#grandtotal {
+  font-family: 'Slabo', serif;
+  font-size: 20px;
+  color: green;
+  text-shadow: 2px 2px #7bfc8a;
 
-  
 }
 // .content { // the d3 model sits inside this z-index 
 //   z-index: 1;
