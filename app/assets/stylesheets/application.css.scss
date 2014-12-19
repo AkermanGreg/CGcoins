@@ -102,13 +102,9 @@ h4 {
   background-color: white;
 }
 .col-md-9 { // is main col with d3 model and buttons at top
-  background: #D8DADB;
-
-  
+  background: #D8DADB;  
 }
-// .content { // the d3 model sits inside this z-index 
-//   z-index: 1;
-// }
+
 .col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
   background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
