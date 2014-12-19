@@ -1,3 +1,4 @@
+//  0.33901918
 var w = window,
     d = document,
     e = d.documentElement,
@@ -9,7 +10,11 @@ var w = window,
 //         .attr("width", x)
 //         .attr("height", y)
 //         .append("g");
+<<<<<<< HEAD
+var xB = x * 0.7498082;
+=======
 var xB = x * 0.74098082;
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
 function updateWindow(){
    
 
@@ -23,7 +28,11 @@ window.onresize = updateWindow;
 console.log(xB, y);
 
   mySettings = {
+<<<<<<< HEAD
+    width:  xB, // canvas size
+=======
     width: xB, // canvas size
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
     height: y, // canvas size
 
     data: {

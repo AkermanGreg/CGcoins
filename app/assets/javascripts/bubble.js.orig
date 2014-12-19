@@ -9,7 +9,11 @@ var w = window,
 //         .attr("width", x)
 //         .attr("height", y)
 //         .append("g");
+<<<<<<< HEAD
+var xB = x * 0.7498082;
+=======
   var xB = x * 0.74098082;
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
 function updateWindow(){
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
