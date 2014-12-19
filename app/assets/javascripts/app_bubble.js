@@ -58,7 +58,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         
         // PRINTS THE INITAL OUTPUT TO THE HTML        converts to string and back to integer 
         // document.getElementById("output").innerHTML = "$" + (response.amount.toString().match(/^\d+(?:\.\d{0,2})?/)) * ;
-        document.getElementById("grandtotal").innerHTML = "Total $" + (grandTotal * priceUSD).formatMoney(2, '.', ',') ;
+        document.getElementById("grandtotal").innerHTML = "Running Total $" + (grandTotal * priceUSD).formatMoney(2, '.', ',') ;
 
         // these if else sets the min size tokens for d3
         if( response.amount <= 4 ) {
@@ -89,16 +89,17 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("btc-callback");
+
           pre.innerHTML = "BTC $ " + (message * priceUSD).formatMoney(2, '.', ',');
-          console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
 
+          token.setting.texture.img.src = 'assets/bitcoinselect.jpg';
         },
       },
       size: message,
       category:0,
       texture: {
-        src: 'assets/bitcoin.jpeg'
+        src: 'assets/bitcoin.jpg'
       },
     });
 
@@ -197,6 +198,8 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
           pre.innerHTML = "DOGE $ " + (message * 0.000175).formatMoney(2, '.', ',');
           // console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+          
+          token.setting.texture.img.src = 'assets/dogecoin2select.png';
         },
       },
       // id:'myId',

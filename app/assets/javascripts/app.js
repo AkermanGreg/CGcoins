@@ -98,17 +98,27 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("btc-callback");
+          // var tokenArray = [];
+          // var newTexture = token.setting.texture.img.src;
           pre.innerHTML = "BTC $ " + (message * priceUSD).formatMoney(2, '.', ',');
-
-          console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
 
+          // if (token) {};
+          token.setting.texture.img.src = 'assets/bitcoinselect.jpg';
+
+          // push selected object into empty array 
+          // tokenArray.push(token);
+          // tokenArray[0].setting.texture.img.src = 'assets/bitcoin.jpg';
+
+          // console.log(tokenArray[0].setting.texture.img.src);
+
+          // console.log(token);
         },
       },
       size: message,
       category:0,
       texture: {
-        src: 'assets/bitcoin.jpeg'
+        src: 'assets/bitcoin.jpg'
       },
     });
 
@@ -204,9 +214,11 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("btc-callback");
+          
           pre.innerHTML = "DOGE $ " + (message * 0.000175).formatMoney(2, '.', ',');
-          console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
+
+          token.setting.texture.img.src = 'assets/dogecoin2select.png';
 
         },
       },

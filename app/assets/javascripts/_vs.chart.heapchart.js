@@ -45,6 +45,7 @@ $.fn._vs.chart.heapchart = function(_this,fn,options) {
               targets:[]
             }
     return token; 
+    console.log("select");
   }
 
  if (typeof(fn)!=undefined){
