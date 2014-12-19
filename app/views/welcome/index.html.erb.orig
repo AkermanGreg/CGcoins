@@ -14,17 +14,21 @@
 
 <div class="row">
   <!-- Style tag removes the grey padding to the right. -->
+<<<<<<< HEAD
   <div class="col-md-9 bg-white" style="padding-right: 0px;">
+=======
+  <div class="col-md-9" id="homePage" style="padding-right: 0px;">
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
 
     <div class="btn-center">
-      <div id="btc-callback">
-        <div></div>
-      </div>
-      <div id="doge-callback2">
-        <div></div>
-      </div>     
       <button class="btn btn-default" onclick="toggleBitcoin()" >Bitcoin Loading</button> 
       <button class="btn btn-default" onclick="toggleDogecoin()">Dogecoin Loading</button>
+      <div class="token-click" id="btc-callback">
+        <div></div>
+      </div>
+      <div class="token-click" id="doge-callback2">
+        <div></div>
+      </div>     
     </div>
 
     <div class="content">
@@ -55,7 +59,7 @@
           <%= link_to "Bubble Chart", bubble_path %>
         </strong>
         </div>
-      </div>
+      <div>
       <br>
 
       <div class="btn">

@@ -41,6 +41,10 @@ h4 {
   font-size: 20px;
   font-weight: bold;
 }
+.logo-style{ // padding for FEDERAL BITCOIN images
+  text-align: center;
+  margin: auto;
+}
 .active { // light grey for active tab
   border: 1px solid #898C90;
   border-bottom: none;
@@ -58,7 +62,15 @@ h4 {
   width: 200px;
   box-sizing: border-box;
   text-align:left;
-
+}
+.token-click { // style for the text that appears when a token is clicked
+  padding-top: 4px;
+  font-family: 'Slabo', serif;
+  font-size: 18px;
+  color: green;
+  text-shadow: 2px 2px #7bfc8a;
+  display: inline-block;
+  float: left;
 }
 .btn-center { // centers the buttons at the top of the page
   font-family: 'Slabo', serif;
@@ -85,6 +97,9 @@ h4 {
   height: 100%;
   margin: 5px;
   overflow-x: hidden;
+}
+.bg-white{
+  background: white;
 }
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
@@ -150,28 +165,23 @@ a:active { // link colors
   color: #791FE0;
   font-size: 20px;
 }
-
 //Defines bitcoin donate link
 a.a2:link {
   color: #FFFFFF;
   font-size: 14px;
 }
-
 a.a2:visited {
   color: #FFFFFF;
   font-size: 14px;
 }
-
 a.a2:hover {
   color: #CCCCCC;
   font-size: 14px;
 }
-
 a.a2:active {
   color: #FFFFFF;
   font-size: 14px;
 }
-
 //The canvas for the homepage is inside this div ID tag. Set to white.
 #myDemo {
   background-color: #FFFFFF;
