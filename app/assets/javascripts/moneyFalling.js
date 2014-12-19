@@ -4,22 +4,20 @@ var w = window,
     g = d.getElementsByTagName('body')[0],
     x = w.innerWidth || e.clientWidth || g.clientWidth,
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-var xB = x * 0.74098082;
+   xB = x * 0.74098082;
+   yB = y - 40;
 
 function updateWindow(){
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-
-    
-    // svg.attr("width", x).attr("height", y);
 }
+
 window.onresize = updateWindow;
-console.log(xB, y);
+// console.log(xB, yB, y);
 
   mySettings = {
     width: xB, // canvas size
-    height: y, // canvas size
+    height: yB, // canvas size
 
     data: {
       "model":[ {label:"Column B"} ],

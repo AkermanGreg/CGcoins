@@ -4,14 +4,13 @@ var w = window,
     g = d.getElementsByTagName('body')[0],
     x = w.innerWidth || e.clientWidth || g.clientWidth,
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+   xB = x * 0.75598082;
 
-var xB = x * 0.74098082;
 function updateWindow(){
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-    
-    // svg.attr("width", x).attr("height", y);
 }
+
 window.onresize = updateWindow;
 console.log(xB, y);
 
