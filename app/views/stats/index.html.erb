@@ -93,8 +93,8 @@
               <% one_trans["inputs"].each do |one_input| %>
               
               <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
-                <% @IOlabel = "SENDER" %>
-                <div class="red"> <strong> 
+               <div class="red"> <strong> <% @IOlabel = "SENDER" %>
+              
               <% end %>
                 <%= one_input["prev_out"]["addr"] %>- <%= number_to_currency(one_input["prev_out"]["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
               <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
@@ -110,8 +110,8 @@
          <% @IOlabel = "" %>
          <% one_trans["out"].each do |one_out| %>
           <% if one_out["addr"] == @rbody["address"] %>
-            <% @IOlabel = "RECEIVER" %>
-          <div class="green"> <strong> 
+            <div class="green"> <strong> <% @IOlabel = "RECEIVER" %>
+          
           <% end %>
           <%= one_out["addr"] %> - <%= number_to_currency(one_out["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
           <% if one_out["addr"] == @rbody["address"] %>

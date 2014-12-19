@@ -1,8 +1,7 @@
 class StatsController < ApplicationController
   require 'httparty'
   def index
-    @response_money = HTTParty.get("http://api.bitcoincharts.com/v1/markets.json")
-    @parsed_response_money = JSON.parse(@response_money.body)
+
     @IOlabel = ""
     @response = HTTParty.get("https://blockchain.info/stats?format=json")
     @parsed_response = JSON.parse(@response.body)

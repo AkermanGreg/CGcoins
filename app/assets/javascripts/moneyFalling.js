@@ -10,6 +10,7 @@ var w = window,
 //         .attr("height", y)
 //         .append("g");
 var xB = x * 0.74098082;
+
 function updateWindow(){
    
 
