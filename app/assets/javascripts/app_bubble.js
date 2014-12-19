@@ -89,7 +89,7 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("btc-callback");
-          pre.innerHTML = "$ " + (message * priceUSD).formatMoney(2, '.', ',');
+          pre.innerHTML = "BTC $ " + (message * priceUSD).formatMoney(2, '.', ',');
           console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
 
@@ -194,8 +194,8 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
         onclick:function(token){
           var pre = document.createElement("div");
           var tokenCallback = document.getElementById("doge-callback");
-          pre.innerHTML = "$ " + (message).formatMoney(2, '.', ',');
-          console.log(tokenCallback);
+          pre.innerHTML = "DOGE $ " + (message * 0.000175).formatMoney(2, '.', ',');
+          // console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
         },
       },

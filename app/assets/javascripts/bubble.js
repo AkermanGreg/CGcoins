@@ -9,7 +9,7 @@ var w = window,
 //         .attr("width", x)
 //         .attr("height", y)
 //         .append("g");
-
+var xB = x * 0.7498082;
 function updateWindow(){
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
@@ -22,7 +22,7 @@ console.log(x, y);
 
 mySettings = {
 
-      width: x,
+      width: xB,
       height: y,
       chart:{
           type:"heapchart"

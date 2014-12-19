@@ -17,14 +17,14 @@
   <div class="col-md-9" style="padding-right: 0px;">
 
     <div class="btn-center">
-      <div id="btc-callback">
-        <div></div>
-      </div>
-      <div id="doge-callback2">
-        <div></div>
-      </div>     
       <button class="btn btn-default" onclick="toggleBitcoin()" >Bitcoin Loading</button> 
       <button class="btn btn-default" onclick="toggleDogecoin()">Dogecoin Loading</button>
+      <div class="token-click" id="btc-callback">
+        <div></div>
+      </div>
+      <div class="token-click" id="doge-callback2">
+        <div></div>
+      </div>     
     </div>
 
     <div class="content">
@@ -39,7 +39,9 @@
   <div class="col-md-3">
     <div class="core-header-panel"><!-- Polymer core element -->
       
-      <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
+      <div class="logo-style">
+        <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
+      </div>      
       <br>
       <div class="center">
         <div class="rails-link">
@@ -52,7 +54,7 @@
           <%= link_to "Bubble Chart", bubble_path %>
         </strong>
         </div>
-      </div>
+      <div>
       <br>
 
       <div class="btn">
