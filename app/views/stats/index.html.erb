@@ -1,4 +1,12 @@
 
+<!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
+<script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
+
+<!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
+<script type="text/javascript" src="/assets/stats.js"></script> 
+<%= javascript_tag do %>
+  priceUSD = "<%= @parsed_response["market_price_usd"] %>"
+<% end %>
 <div class="row" style="font-family: 'Roboto', sans-serif;">
   <div class="col-md-9" style="background-color: white;">
     <!-- Only show if show_data exists and is not blank -->
@@ -74,40 +82,40 @@
           <% if @show_data && @show_data != "" %> 
           <% @trans.each do |one_trans| %>
           <tr>
-            <td><br /> TRANSACTION
-                <br /> Hash: <%=one_trans["hash"] %>
+            <td colspan="2"> TRANSACTION Hash: <%=one_trans["hash"] %>
             </td>
-            <td>
-            </td>
+           
           </tr>
           <tr>
-            <td>
+            <td width="50%">
               <strong>-- Transaction Senders --</strong><br />
               <% @IOlabel = "" %>
               <% one_trans["inputs"].each do |one_input| %>
+              
               <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
                 <% @IOlabel = "SENDER" %>
-                <strong> 
+                <div class="red"> <strong> 
               <% end %>
-              <i> Sender:</i> <%= one_input["prev_out"]["addr"] %>- <%= number_to_currency(one_input["prev_out"]["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
+                <%= one_input["prev_out"]["addr"] %>- <%= number_to_currency(one_input["prev_out"]["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
               <% if one_input["prev_out"]["addr"] == @rbody["address"] %>
-                </strong> 
+                </div></strong> 
               <% end %>
+
               <% end %>
               <br />
               <%=  @IOlabel %>
             </td>
-            <td>
+            <td width="50%">
          <strong>--Transaction Receivers--</strong><br />
          <% @IOlabel = "" %>
          <% one_trans["out"].each do |one_out| %>
           <% if one_out["addr"] == @rbody["address"] %>
             <% @IOlabel = "RECEIVER" %>
-          <strong> 
+          <div class="green"> <strong> 
           <% end %>
-         <i>Receiver:</i> <%= one_out["addr"] %> - <%= number_to_currency(one_out["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
+          <%= one_out["addr"] %> - <%= number_to_currency(one_out["value"] * @parsed_response["market_price_usd"] / 100000000) %><br />
           <% if one_out["addr"] == @rbody["address"] %>
-          </strong> 
+          </strong> </div>
           <% end %>
          <% end %>
          <br />
