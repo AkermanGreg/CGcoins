@@ -104,6 +104,9 @@ h4 {
 .content { // the d3 model sits inside this z-index 
   z-index: 1;
 }
+.content { // the d3 model sits inside this z-index 
+  z-index: 1;
+}
 .col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
   background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
@@ -181,21 +184,33 @@ a.a2:active {
 #myDemo {
   background-color: #FFFFFF;
 }
+<<<<<<< HEAD
+// .row {
+//     display: table;
+// }
+=======
 
 // .row {
 //     display: table;
 // }
 
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
 // [class*="col-"] {
 //     float: none;
 //     display: table-cell;
 //     vertical-align: top;
 // }
+<<<<<<< HEAD
+.row{
+    overflow: hidden; 
+}
+=======
 
 .row{
     overflow: hidden; 
 }
 
+>>>>>>> 8f0a51ae1769d96a26d4f2e7c3cdab0bfa31365f
 [class*="col-"]{
     margin-bottom: -99999px;
     padding-bottom: 99999px;
