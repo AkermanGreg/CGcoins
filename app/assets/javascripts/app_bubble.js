@@ -10,6 +10,8 @@ var dgeOutput; // the dogecoin transaction amount
 var TYPE_BLOCK = "block"; // var for when a block is created
 var total = []; // array for adding the total USD ammount 
 
+var prevSelected = null;
+var prevSelected2 = null;
 
 function init() { // fires when page is loaded
   document.getElementsByClassName("btn btn-default")[0].disabled = true;
@@ -93,7 +95,11 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
           pre.innerHTML = "BTC $ " + (message * priceUSD).formatMoney(2, '.', ',');
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
 
+          if (prevSelected != null) {
+            prevSelected.src = 'assets/bitcoin.jpg';
+          }
           token.setting.texture.img.src = 'assets/bitcoinselect.jpg';
+          prevSelected = token.setting.texture.img;
         },
       },
       size: message,
@@ -199,10 +205,13 @@ function initWebSocket() {//  init blockchain websocket (activity, blocks)
           // console.log(tokenCallback);
           tokenCallback.replaceChild(pre, tokenCallback.childNodes[0]);
           
+          if (prevSelected2 != null) {
+            prevSelected2.src = 'assets/dogecoin2.png';
+          }
           token.setting.texture.img.src = 'assets/dogecoin2select.png';
+          prevSelected2 = token.setting.texture.img;
         },
       },
-      // id:'myId',
       size: message,
       category:0,
       texture: {
