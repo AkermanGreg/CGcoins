@@ -137,8 +137,9 @@
   </div>
    <div class="col-md-3">
     <div class="core-header-panel"><!-- Polymer core element -->
-      
-      <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
+      <div class="logo-style">
+        <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
+      </div>
       <br>
       <div class="center">
         <div class="rails-link">
@@ -154,7 +155,7 @@
       </div>
       <br>
 
-      <div class="btn">
+      <div class="center">
         <%= form_tag(stats_path, method: "get") do %>
           <%= text_field_tag :addressSearch,nil, placeholder: "Search Bitcoin Address", :class =>"btn-sm" %>
           <%= submit_tag "Search", :class => "btn btn-default btn-sm" %>
