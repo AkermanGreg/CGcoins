@@ -1,6 +1,7 @@
 class StatsController < ApplicationController
   require 'httparty'
   def index
+
     @IOlabel = ""
     @response = HTTParty.get("https://blockchain.info/stats?format=json")
     @parsed_response = JSON.parse(@response.body)
@@ -22,8 +23,8 @@ class StatsController < ApplicationController
       @trans = @rbody["txs"]
 
       @outs = @rbody["txs"][0]["out"]
-      @inputsBottom = @rbody["txs"][1]["inputs"]
-      @outsBottom = @rbody["txs"][1]["out"]
+     
+   
       @address = @rbody["address"]
 
     end
@@ -31,6 +32,7 @@ class StatsController < ApplicationController
     @customError = "Bitcoin address not found exist"
     @show_data = false
   ensure
+        
     #Using @@ because testVar is a class variable
     @formVar = @@testVar + 10
   end

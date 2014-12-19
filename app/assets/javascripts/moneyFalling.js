@@ -6,6 +6,7 @@ var w = window,
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
 var xB = x * 0.74098082;
+
 function updateWindow(){
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;

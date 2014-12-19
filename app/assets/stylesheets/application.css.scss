@@ -49,6 +49,11 @@ h4 {
   border: 1px solid #898C90;
   border-bottom: none;
 }
+
+//red and green colors
+.red {color: red;}
+.green {color: green;}
+
 .btclist { // the div is the running list of all the transaction
   font-family: 'Slabo', serif;
   font-size: 18px;
@@ -94,7 +99,7 @@ h4 {
   overflow-x: hidden;
 }
 .bg-white{
-  background: white;
+  background-color: white;
 }
 .col-md-9 { // is main col with d3 model and buttons at top
   background: #D8DADB;
@@ -112,6 +117,8 @@ h4 {
   //   -moz-box-shadow: 1px 1px 3px #292929;
   padding-right: 10px;
   padding-left: 5px;
+  margin-bottom: -599px;
+  padding-bottom: 599px;
 }
 .img2 { // for the log padding
   padding-top: 30px;
@@ -162,19 +169,19 @@ a:active { // link colors
 }
 //Defines bitcoin donate link
 a.a2:link {
-  color: #FFFFFF;
+  color: #791FE0;
   font-size: 14px;
 }
 a.a2:visited {
-  color: #FFFFFF;
+  color: #791FE0;
   font-size: 14px;
 }
 a.a2:hover {
-  color: #CCCCCC;
+  color: #791FE0;
   font-size: 14px;
 }
 a.a2:active {
-  color: #FFFFFF;
+  color: #791FE0;
   font-size: 14px;
 }
 //The canvas for the homepage is inside this div ID tag. Set to white.
@@ -199,7 +206,4 @@ a.a2:active {
     overflow: hidden; 
 }
 
-[class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
+

@@ -12,8 +12,13 @@
 <% end %>
 
 <div class="row">
+<<<<<<< HEAD
+  <!-- Style tag removes the grey padding to the right. -->
+  <div class="col-md-9 bg-white" style="padding-right: 0px;">
+=======
 
   <div class="col-md-9" style="background-color: white;">
+>>>>>>> 11c596c76580fe58c529be3dc8f5ccdb8fa29851
 
     <div class="btn-center">
       <button class="btn btn-default" onclick="toggleBitcoin()" >Bitcoin Loading</button> 
