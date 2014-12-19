@@ -5,14 +5,8 @@ var w = window,
     x = w.innerWidth || e.clientWidth || g.clientWidth,
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
-// var svg = d3.select("body").append("svg")
-//         .attr("width", x)
-//         .attr("height", y)
-//         .append("g");
 var xB = x * 0.74098082;
 function updateWindow(){
-   
-
     x = w.innerWidth || e.clientWidth || g.clientWidth;
     y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 

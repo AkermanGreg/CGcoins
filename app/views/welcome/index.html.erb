@@ -1,11 +1,9 @@
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
 
+
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="/assets/app.js"></script> 
-
-<!-- CURRENCY FORMAT LIBRARY -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 
 <!-- creates a var=priceUSD for JS -->
 <%= javascript_tag do %>
@@ -17,14 +15,14 @@
   <div class="col-md-9 bg-white" style="padding-right: 0px;">
 
     <div class="btn-center">
-      <div id="btc-callback">
-        <div></div>
-      </div>
-      <div id="doge-callback2">
-        <div></div>
-      </div>     
       <button class="btn btn-default" onclick="toggleBitcoin()" >Bitcoin Loading</button> 
       <button class="btn btn-default" onclick="toggleDogecoin()">Dogecoin Loading</button>
+      <div class="token-click" id="btc-callback">
+        <div></div><!-- required for replaceChild -->
+      </div>
+      <div class="token-click" id="doge-callback2">
+        <div></div><!-- required for replaceChild -->
+      </div>
     </div>
 
     <div class="content">
@@ -38,7 +36,6 @@
 
   <div class="col-md-3">
     <div class="core-header-panel"><!-- Polymer core element -->
-      
       <div class="logo-style">
         <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
       </div>      
@@ -49,16 +46,15 @@
             <%= link_to "Charts", exchange_path %>
           </strong>
         </div>
-        |
         <div class="rails-link">
-        <strong>
-          <%= link_to "Bubble Chart", bubble_path %>
-        </strong>
+          <strong>
+            <%= link_to "Bubble Chart", bubble_path %>
+          </strong>
         </div>
-      </div>
+      </div><!-- end of center -->
       <br>
 
-      <div class="btn">
+      <div class="center">
         <%= form_tag(stats_path, method: "get") do %>
           <%= text_field_tag :addressSearch,nil, placeholder: "Search Bitcoin Address", :class =>"btn-sm" %>
           <%= submit_tag "Search", :class => "btn btn-default btn-sm" %>
@@ -66,15 +62,11 @@
       </div>
 
       <div class="center">
-        
-          <h4>BTC Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
-      
-      <div>
-
-      <div id="grandtotal" class="center">
-          BTC Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
+        <h4>BTC Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
+        <div id="grandtotal">
+            Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
+        </div>
       </div>
-
       <ul class="nav nav-tabs" style="margin-bottom: 15px;">
         <li class="active">
           <a href="#bitcoins" data-toggle="tab">
@@ -99,16 +91,13 @@
           <div id="dollar" class="btclist">
             <div></div><!-- required for .insertBefore -->
           </div>
-        </div>
-
+        </div><!-- end of tab-pane -->
       </div><!-- end of myTabContent -->
-  
     </div><!-- end core-header-panel -->
+    <div class="donate a2">
+      Donate Please<br>
+      <%= link_to"19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", "https://blockchain.info/address/19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", :class => "a2" %>
+    </div>
   </div><!-- end col-md-3 -->
-
 </div><!-- end row -->
-<div class="donate a2">
-  Donate Please<br>
-  <%= link_to"19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", "https://blockchain.info/address/19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", :class => "a2" %>
-</div>
 

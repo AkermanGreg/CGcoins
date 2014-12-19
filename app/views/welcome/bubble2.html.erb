@@ -1,7 +1,6 @@
-<!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
+<!-- REQUIRE Visual Sedimentation Library -->
 <script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
 <script type="text/javascript" src="/assets/_vs.chart.heapchart.js"></script>
-
 
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="/assets/app_bubble.js"></script>
@@ -12,7 +11,7 @@
 <% end %>
 
 <div class="row">
-  <!-- Style tag removes the grey padding to the right. -->
+
   <div class="col-md-9 bg-white" style="padding-right: 0px;">
 
     <div class="btn-center">
@@ -39,7 +38,7 @@
     <div class="core-header-panel"><!-- Polymer core element -->
       <div class="logo-style">
         <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
-      </div>      
+      </div>
       <br>
       <div class="center">
         <div class="rails-link">
@@ -55,7 +54,7 @@
       </div><!-- end of center -->
       <br>
 
-      <div class="center">
+      <div class="btn">
         <%= form_tag(stats_path, method: "get") do %>
           <%= text_field_tag :addressSearch,nil, placeholder: "Search Bitcoin Address", :class =>"btn-sm" %>
           <%= submit_tag "Search", :class => "btn btn-default btn-sm" %>
@@ -63,10 +62,9 @@
       </div>
 
       <div class="center">
-        <h4>BTC Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
-        <div id="grandtotal">
-            Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
-        </div>
+        <h4>Market Price USD: $<%= @parsed_response["market_price_usd"] %></h4><!-- current market price -->
+      <div id="grandtotal" class="center">
+        Running Total: <!-- Keeps a running tab of USD grand toatakamount -->
       </div>
       <ul class="nav nav-tabs" style="margin-bottom: 15px;">
         <li class="active">
@@ -95,10 +93,10 @@
         </div><!-- end of tab-pane -->
       </div><!-- end of myTabContent -->
     </div><!-- end core-header-panel -->
-    <div class="donate a2">
-      Donate Please<br>
-      <%= link_to"19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", "https://blockchain.info/address/19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", :class => "a2" %>
-    </div>
   </div><!-- end col-md-3 -->
 </div><!-- end row -->
 
+<div class="donate a2">
+  Donate Please<br>
+  <%= link_to"19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", "https://blockchain.info/address/19htWM6ceqkjguY7TezEeybSE2LzvSfqYk", :class => "a2" %>
+</div>

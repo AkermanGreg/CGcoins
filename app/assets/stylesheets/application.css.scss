@@ -53,7 +53,7 @@ h4 {
   font-family: 'Slabo', serif;
   font-size: 18px;
   padding-left: 50px;
-  height: 355px;
+  height: 555px;
   width: 200px;
   box-sizing: border-box;
   text-align:left;
@@ -61,7 +61,7 @@ h4 {
 .token-click { // style for the text that appears when a token is clicked
   padding-top: 4px;
   font-family: 'Slabo', serif;
-  font-size: 18px;
+  font-size: 25px;
   color: green;
   text-shadow: 2px 2px #7bfc8a;
   display: inline-block;
@@ -101,9 +101,9 @@ h4 {
 
   
 }
-.content { // the d3 model sits inside this z-index 
-  z-index: 1;
-}
+// .content { // the d3 model sits inside this z-index 
+//   z-index: 1;
+// }
 .col-md-3 { // contains all of sidebar
   background-image: linear-gradient(#dbddde, #898c90);
   background: linear-gradient(to bottom, #dbddde 0%,#898c90 100%);
@@ -179,6 +179,9 @@ a.a2:active {
 }
 //The canvas for the homepage is inside this div ID tag. Set to white.
 #myDemo {
+  background-color: #FFFFFF;
+}
+#heatchart {
   background-color: #FFFFFF;
 }
 
