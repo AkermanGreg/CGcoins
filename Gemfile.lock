@@ -36,8 +36,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     blockchain (1.0.1)
-    bootstrap-material-design (0.1.4)
-      bootstrap-sass (~> 3.0)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
@@ -148,7 +146,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   blockchain
-  bootstrap-material-design
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
   httparty
