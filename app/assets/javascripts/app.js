@@ -14,9 +14,9 @@ var total = []; // array for adding the total USD ammount
 var prevSelected = null;
 var prevSelected2 = null;
 
+
+
 //This function toggles the Bitcoin coin drop
-
-
 function init() { // fires when page is loaded
   document.getElementsByClassName("btn btn-default")[0].disabled = true;
   document.getElementsByClassName("btn btn-default")[1].disabled = true;
