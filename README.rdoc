@@ -1,4 +1,4 @@
-FederalBitcoin
+Federal Bitcoin
 
 Live Data Visualization of Bitcoin transactions feed from Blockchain via Websocket.
 
