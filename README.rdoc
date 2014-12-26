@@ -1,7 +1,7 @@
-FederalBitcoin Description
+FederalBitcoin
 
-RUBY ON RAILS APP THAT IS PULLING BLOCKCHAIN.INFO’S 
+Live Data Visualization of Bitcoin transactions feed from Blockchain via Websocket.
 
-webSocket
+Using Visual Sedimentation with D3.
 
-API
+Built With: JavaScript, Ruby on Rails, WebSockets, APIs.
