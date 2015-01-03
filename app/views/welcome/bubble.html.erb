@@ -37,25 +37,28 @@
 
   <div class="col-md-3">
     <div class="core-header-panel"><!-- Polymer core element -->
-      <div class="logo-style">
+     <div class="logo-style"><!-- Logo -->
         <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
-      </div>      
-      <a href="https://github.com/AkermanGreg/FederalBitcoin" style="text-size: 9px"> by thirdChance57 and Greg Akerman</a>
+      </div>   
 
+      <div class="center">
+      developed by <a class="a2" href="https://www.linkedin.com/profile/view?id=132408717">thirdChance57</a> and <a class="a2" href="https://www.linkedin.com/pub/gregory-akerman/29/663/b78/">AkermanGreg</a></div>  
       <br>
       <div class="center">
-        <div class="rails-link">
+        <!-- <div class="rails-link">
           <strong>
-            <%= link_to "Charts", exchange_path %>
+            <%#= link_to "Charts", exchange_path %>
           </strong>
-        </div>
+        </div> -->
         <div class="rails-link">
           <strong>
-            <%= link_to "Gravity Chart", root_path %>
+            <%= link_to "Bubble Chart", bubble_path %>
           </strong>
         </div>
       </div><!-- end of center -->
       <br>
+
+ 
       <div class="center">
         <%= form_tag(stats_path, method: "get") do %>
           <%= text_field_tag :addressSearch,nil, placeholder: "Search Bitcoin Address", :class =>"btn-sm" %>
