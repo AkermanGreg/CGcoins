@@ -137,22 +137,25 @@
   </div>
    <div class="col-md-3">
     <div class="core-header-panel"><!-- Polymer core element -->
-      <div class="logo-style">
+        <div class="logo-style"><!-- Logo -->
         <%= link_to image_tag("Federallogo.png"), root_path, method: :get %>
-      </div>
+      </div>   
+
+      <div class="center">
+      developed by <a class="a2" href="https://www.linkedin.com/profile/view?id=132408717">thirdChance57</a> and <a class="a2" href="https://www.linkedin.com/pub/gregory-akerman/29/663/b78/">AkermanGreg</a></div>  
       <br>
       <div class="center">
+        <!-- <div class="rails-link">
+          <strong>
+            <%#= link_to "Charts", exchange_path %>
+          </strong>
+        </div> -->
         <div class="rails-link">
           <strong>
-            <%= link_to "Charts", exchange_path %>
+            <%= link_to "Bubble Chart", bubble_path %>
           </strong>
         </div>
-        <div class="rails-link">
-        <strong>
-          <%= link_to "Bubble Chart", bubble_path %>
-        </strong>
-        </div>
-      </div>
+      </div><!-- end of center -->
       <br>
 
       <div class="center">
@@ -161,6 +164,7 @@
           <%= submit_tag "Search", :class => "btn btn-default btn-sm" %>
         <% end %>
       </div>
+
 
       <div class="center">
         
