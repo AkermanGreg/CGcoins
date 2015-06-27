@@ -41,6 +41,10 @@ h4 {
   font-size: 20px;
   font-weight: bold;
 }
+hr.m-0 {
+  background-color:lightblue;
+  margin: 8px 8px;
+}
 .logo-style{ // padding for FEDERAL BITCOIN images
   text-align: center;
   margin: auto;
@@ -90,7 +94,7 @@ h4 {
 }
 .center { // centers stuff inside the div with MARKET PRICE USD
   font-family: 'Slabo', serif;
-  font-size: 18px;
+  // font-size: 18px;
   text-align: center;
   margin: auto;
 }
@@ -130,7 +134,6 @@ h4 {
   padding-right: 10px;
 }
 .rails-link { // for the links to the chart, bubble, and gravity pages below the logo
-  padding: 5px; 
   display: inline-block;
   font-size: 16px;
   font-family: 'Oxygen', sans-serif;
@@ -198,7 +201,12 @@ a.a2:active {
 }
 
 .row{
-    overflow: hidden; 
+  overflow: hidden; 
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.4;
 }
 
 
