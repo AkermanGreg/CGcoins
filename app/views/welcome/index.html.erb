@@ -1,9 +1,7 @@
 <!-- REQUIRE THE D3 LIBRARY Visual Sedimentation -->
 <script type="text/javascript" src="/assets/_VisualSedimentation.js"></script> 
-
 <!-- REQUIRE APP.JS FOR THE WEBSOCKET -->
 <script type="text/javascript" src="/assets/app.js"></script> 
-
 <!-- creates a var=priceUSD for JS -->
 <%= javascript_tag do %>
   priceUSD = "<%= @parsed_response["market_price_usd"] %>"
@@ -12,7 +10,6 @@
 <div class="row">
   <!-- Style tag removes the grey padding to the right. -->
   <div class="col-md-9 bg-white" style="padding-right: 0px;">
-
     <div class="btn-center"> <!-- start of buttons to turn off and on BTC and DOGE -->
       <button class="btn btn-default" onclick="toggleBitcoin()" >Bitcoin Loading</button> 
       <button class="btn btn-default" onclick="toggleDogecoin()">Dogecoin Loading</button>
@@ -23,14 +20,12 @@
         <div></div><!-- required for replaceChild -->
       </div>
     </div>
-
     <div class="content">
       <!--- #myDemo now has a css rule -->
       <div id="myDemo">
         <script type="text/javascript" src="/assets/moneyFalling.js"></script>
       </div>
     </div> 
-
   </div><!-- end col-md-9 -->
 
   <div class="col-md-3">
